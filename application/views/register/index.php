@@ -160,8 +160,8 @@ $this->lang->load('content',$user_language);
             </div>
             <div id="locationField">
                 <label><?=$this->lang->line('residential');?><span class="um-req" title="Required">*</span></label>
-                <input id="autocomplete" placeholder="<?=$this->lang->line('address_here');?>"
-                       onFocus="geolocate()" type="text" ></input>
+                <textarea id="autocomplete" rows="1" placeholder="     <?=$this->lang->line('address_here');?>"
+                       onFocus="geolocate()" ></textarea>
             </div>
 
             <table id="address">
@@ -185,10 +185,13 @@ $this->lang->load('content',$user_language);
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('province');?></td>
-                    <td class="slimField"><input class="field" name="province"
-                                                 id="administrative_area_level_1" style=" padding-top: 2%" required value="<?php if(isset($_SESSION["province"])) {echo $_SESSION["province"];} ?>"></input></td>
+                    <td class="slimField" colspan="3"><input class="field" name="province"
+                                                 id="administrative_area_level_1" style="width: 150%; padding-top: 2%" required value="<?php if(isset($_SESSION["province"])) {echo $_SESSION["province"];} ?>"></input></td>
+
+                </tr>
+                <tr>
                     <td class="label"><?=$this->lang->line('zip_code');?></td>
-                    <td class="wideField"><input class="field" id="postal_code" name="zip_code" style=" padding-top: 2%"
+                    <td class="wideField" colspan="3"><input class="field" id="postal_code" name="zip_code" style="width: 150%; padding-top: 2%"
                                                  value="<?php if(isset($_SESSION["zip_code"])) {echo $_SESSION["zip_code"];} ?>"></input></td>
                 </tr>
                 <tr>
@@ -4767,8 +4770,8 @@ $this->lang->load('content',$user_language);
 
             <div id="locationField1">
                 <label><?=$this->lang->line('birth_residential');?><span class="um-req" title="Required">*</span></label>
-                <input id="autocomplete1" placeholder="<?=$this->lang->line('address_here');?>"
-                       onFocus="geolocate()" type="text" ></input>
+                <textarea id="autocomplete1" rows="1" placeholder="<?=$this->lang->line('address_here');?>"
+                       onFocus="geolocate()" ></textarea>
             </div>
             <div class="tooltip_match" >
                         <span class="match" id="notmatch">
@@ -4850,6 +4853,7 @@ $this->lang->load('content',$user_language);
                 <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> <span class="um-req"><?=$this->lang->line('pro_image');?></span></label>
                 <p id="image_error" style="display: none;color: red"><?=$this->lang->line('image_invalid');?></p>
             </div>
+            <a id='preview' onclick="show_image()"><?=$this->lang->line('preivew_image');?></a>
             <div id="myBtn"><p  style="margin-bottom:9px;margin-top:7px"> <?=$this->lang->line('rule_check');?></p></div>
             <div ><input type="checkbox" required> <?=$this->lang->line('agree');?></div>
             <button type="submit" class="regi_button" id="um-submit-btn" ><?=$this->lang->line('register');?></button>
@@ -4868,6 +4872,14 @@ $this->lang->load('content',$user_language);
         <?php   require ($this->lang->line('privacy'))?>
 
     </div>
+
+</div>
+<div id="myModal_image" class="modal_image">
+    <span class="close_image">&times;</span>
+
+
+    <img class="modal-content-image" id="img01-image" >
+
 
 </div>
 <!--image tag manage-->
@@ -4994,6 +5006,42 @@ $this->lang->load('content',$user_language);
         elem.style.visibility = 'hidden';
     }
 
+//    show image
+    function show_image(){
+
+        // Get the modal
+        var modal = document.getElementById('myModal_image');
+        var modalImg = document.getElementById("img01-image");
+        modal.style.display = "block";
+
+
+
+//        var preview = document.querySelector('img');
+        var file    = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
+
+        reader.addEventListener("load", function () {
+            modalImg.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+    var modal_image = document.getElementById('myModal_image');
+    var span_image = document.getElementsByClassName("close_image")[0];
+    // When the user clicks on <span> (x), close the modal
+    span_image.onclick = function() {
+        modal_image.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal_image) {
+            modal_image.style.display = "none";
+        }
+    }
+
+
 </script>
 <style>
 
@@ -5064,29 +5112,7 @@ $this->lang->load('content',$user_language);
             e.preventDefault();
             return false;
         });
-////        country auto select
-//        jQuery("#mobile_number-58").focusin(function(){
-//            var country=jQuery(".selected-flag:eq(1)").attr( "title");
-//            var bool=0;
-//            if (country.includes("Canada")){
-//                jQuery('#country_live').val('CA');
-//                bool=1;
-//            }
-//            if (country.includes("Taiwan")){
-//                jQuery('#country_live').val('TW');
-//                bool=1;
-//            }
-//            if (country.includes("China")){
-////                $("div.country selected").val("CN");
-//                jQuery('#country_live').val('CN');
-//                bool=1;
-//            }
-//            if(bool==0){
-//                jQuery('#country_live').val('');
-//            }
-//
-//        });
-//        country auto select end
+
 
         jQuery('.um.um-login.um-logout .um-misc-with-img .profile-name').each(function () {
             jQuery(this).append('<i class="fa fa-angle-down" aria-hidden="true"></i>');
@@ -5140,3 +5166,9 @@ $this->lang->load('content',$user_language);
 
 </div>
 </body></html>
+<style>
+
+
+
+
+</style>

@@ -315,10 +315,8 @@ class Register  extends CI_Controller{
 
 
     public function test()
-    {   $string='gdsfg dgsfgdfg gdfg';
-        $string1 = str_replace(' ', '', $string);
-        echo($string1);
-
+    {
+        $this->load->view('register/test.php');
 
     }
     public function file_send()
