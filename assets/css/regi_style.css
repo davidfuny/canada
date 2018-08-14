@@ -1,0 +1,374 @@
+body {font-family: Arial, Helvetica, sans-serif;margin: 0;}
+
+
+input[type=text], input[type=email] ,input[type=number]{
+    width: 100%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: large;
+}
+#confirm{
+    width: 90%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: large;
+}
+#pass{
+    width: 100%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: large;
+}
+/*header css*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+.nav_bar{
+    /*margin-left: 70%;*/
+    padding: 20px 0;
+    background: #00acf0;
+}
+@media (max-width: 1169px){
+    .nav_bar {
+        padding: 20px 25px;
+    }}
+.wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+}
+@media (max-width: 1169px){
+    .wrapper{
+        content: "";
+        display: table;
+        clear: both;
+    }}
+.nav{
+    width: 60%;
+    float: right;
+}
+.logo{
+    width:30%;
+    float: left;
+    margin: 0 auto 0 0;
+}
+@media (max-width: 1169px){
+    .logo {
+        margin: 0 auto 0 0;
+        width: 100%;
+        text-align: center;
+        clear: both}
+    .nav{
+        clear: both;
+        width: 100%;
+        text-align: center;
+        /*max-width: 281px;*/
+        margin: 0 auto;
+    }
+}
+li {
+    float: right;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+}
+@media (max-width: 1169px){
+    li a, .dropbtn{
+        font-size: 15px;
+        margin: -9px;
+
+    }
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*end header css*/
+
+/*start footer*/
+.site-footer{
+    padding-top: 30px;
+}
+.textwidget{
+
+    padding: 15px 0;
+    color: white;
+}
+/*end footer*/
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+
+    border: none;
+    cursor: pointer;
+    width: 96%;
+    font-size: large;
+}
+.regi_button{
+margin-left: 2%;
+
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+
+    padding: 16px;
+}
+.register {
+    padding: 16px;
+    margin-top: -7%;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+.um-col-1{
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 48%;
+
+}
+select{
+    width: 100%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+    font-size: large;
+}
+.um-form-field{
+    width: 100%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 100%;
+    font-size: large;
+}
+.inputfile{
+    color: #f1e5e6;
+    background-color: #d3394c;
+    height: 50px;
+    padding: 0.625rem 1.25rem;
+    margin-top: 20px;
+}
+/*option{*/
+    /*font-size: larger;*/
+/*}*/
+
+/* Change styles for span and cancel button on extra small screens */
+/*@media screen and (max-width: 300px) {*/
+/*span.psw {*/
+/*display: block;*/
+/*float: none;*/
+/*}*/
+/*.cancelbtn {*/
+/*width: 100%;*/
+/*}*/
+/*}*/
+form{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+
+
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width:72%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+
+/* style 1 */
+
+.inputfile-1 + label {
+    color: #f1e5e6;
+    background-color: #d3394c;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+    background-color: #722040;
+}
+
+#myBtn{
+
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /*overflow: auto; !* Enable scroll if needed *!*/
+
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content */
+.modal-content {
+    background-color:#18dcbf;
+    margin: auto;
+    border-radius: 4%;
+    border: 1px solid #888;
+    width: 60%;
+
+    height: 580px;
+}
+
+/* The Close Button */
+.close {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 35%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-body{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 480px;
+    background-color: white;
+    overflow: scroll;
+}
+.Privacy{
+    width: 85%;
+    margin-left: 7%;
+    margin-bottom: 20px;
+}
+
