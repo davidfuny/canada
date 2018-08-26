@@ -17,7 +17,14 @@ class Register  extends CI_Controller{
         header('Pragma:no-cache');
         $this->load->library('session');
         if(!(isset($_SESSION["language"]))){
-            $_SESSION["language"]='english';
+            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            if ($lang=='zh'){
+                $_SESSION["language"]='chinese';
+            }
+            else{
+                $_SESSION["language"]='english';
+            }
+
         }
     }
 
@@ -38,6 +45,8 @@ class Register  extends CI_Controller{
         if (isset($_POST['mobile_number'])) {
             $mobile_number = $_POST['mobile_number'];
             $street = $_POST['street'];
+            $zip_code=$_POST['zip_code'];
+            $load_address=$_POST['load_address'];
             $province = $_POST['province'];
             $country = $_POST['country'];
             $language = $_POST['language'];
@@ -65,7 +74,6 @@ class Register  extends CI_Controller{
             if(move_uploaded_file($_FILES["image"]["tmp_name"],$file_path)){
                 $image_url=str_replace("index.php/","",site_url($file_path));
             }
-
 
             $generateUrl = "https://auth.miniorange.com/moas/api/auth/challenge";
             /* The customer Key provided to you */
@@ -116,7 +124,6 @@ class Register  extends CI_Controller{
                 $_SESSION["user_email"] = $user_email;
                 $_SESSION["user_password"] = $user_password;
                 $_SESSION["mobile_number"] = $mobile_number;
-
                 $_SESSION["street"] =$street;
                 $_SESSION["province"] = $province;
                 $_SESSION["country"] = $country;
@@ -125,6 +132,8 @@ class Register  extends CI_Controller{
                 $_SESSION["nationality"] = $nationality;
                 $_SESSION["country_birth"] = $country_birth;
                 $_SESSION["post_code"] = $post_code;
+                $_SESSION["zip_code"] = $zip_code;
+                $_SESSION["load_address"] = $load_address;
                 $_SESSION["image_url"] = $image_url;
 
                 $this->load->view('register/validate.php');
@@ -215,6 +224,8 @@ class Register  extends CI_Controller{
                     $data1['user_email']=$_SESSION["user_email"];
                     $data1['pass']=$_SESSION["user_password"];
                     $data1['mobile_number']=$_SESSION["mobile_number"];
+                    $data1['zip_code']=$_SESSION["zip_code"];
+                    $data1['load_address']=$_SESSION["load_address"];
 
                     $data1['street']=$_SESSION["street"];
                     $data1['province']=$_SESSION["province"];
@@ -250,52 +261,22 @@ class Register  extends CI_Controller{
         }
 
     }
-    public function send(){
-        $this->load->model('user');
-        $data['user_name']='tae';
+    public function sendmail(){
+        $data['user_name']='im';
         $data['user_email']='star1987lei@gmail.com';
+        $this->load->model('user');
         $email=$this->user->sendmail($data);
         if($email){
-            echo('ok');
+            $dat='success';
+            redirect('/welcome/index/'.$dat);
+
         }
-//        $body = '<div style="font:12px/20px Arial, Helvetica, sans-serif;">';
-//        $body .= 'Name :gfsdfg  <br/>
-//
-//				 Email :gsdfgsd<br/>
-//
-//				 Message:</div><br/>';
-//
-//
-//        $from = "yifeili924@outlook.com";    //senders email address
-//        $subject = 'Thanks for connecting with us.';  //email subject
-//        //config email settings
-//        //$config['protocol'] = 'smtp';
-//        $config['smtp_crypto'] = 'tls';
-//        $config['smtp_host'] = 'smtp.live.com';
-//        $config['smtp_port'] = '587';
-//        $config['smtp_user'] = $from;
-//        $config['smtp_pass'] = 'admin1987';  //sender's password
-//        $config['mailtype'] = 'html';
-//        $config['charset'] = 'iso-8859-1';
-//        $config['wordwrap'] = 'TRUE';
-//        $config['newline'] = "\r\n";
-//        $config['crlf'] = "\r\n";
-//        $receiver='star1987lei@gmail.com';
-//        $this->load->library('email', $config);
-//        $this->email->initialize($config);
-//        //send email
-//        $this->email->from('noreply@spwr.com');
-//        $this->email->to($receiver);
-//        $this->email->subject($subject);
-//        $this->email->message($body);
-//
-//
-//
-//        if($this->email->send()){
-//            echo('ok');
-//        }else{
-//            echo('false');
-//        }
+    }
+
+    public function browser(){
+//        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+//        echo ($lang);
+        $this->load->view('adress.php');
     }
 }
 

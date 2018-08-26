@@ -20,11 +20,11 @@ class User extends CI_Model{
 //        $this->load->library('encrypt');
         $account=$data['user_name'];
         $to=$data['user_email'];
-        $config['smtp_crypto'] = 'ssl';
+        $config['smtp_crypto'] = 'tls';
         $config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'mail.durrows.com';
-        $config['smtp_port'] = '25';
-        $config['smtp_user'] = 'suppurt@durrows.com';
+        $config['smtp_host'] = 'smtp.outlook.com';
+        $config['smtp_port'] = '587';
+        $config['smtp_user'] = 'zzz@outlook.com';
         $config['smtp_pass'] = 'admin1987';
         $config['mailtype'] = 'html';
         $config['charset'] = 'iso-8859-1';
@@ -43,7 +43,7 @@ class User extends CI_Model{
 
         </p>';
 
-        $from='yifeili924@outlook.com';
+        $from='zzz@outlook.com';
         $this->email->to($to);
         $this->email->from($from, 'Mefon');
         $this->email->subject('Register Mefon');

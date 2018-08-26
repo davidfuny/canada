@@ -36,4 +36,5 @@ $lang['your_username']="您的用户名是";
 $lang['logout']="退出";
 $lang['down_apk']='下载 apk.';
 $lang['privacy']='privacy_cn.php';
+$lang['residential']='居住地';
 ?>

@@ -37,4 +37,5 @@ $lang['logout']="Logout";
 $lang['pro_image']='Facial Image';
 $lang['down_apk']='Download apk.';
 $lang['privacy']='privacy_eng.php';
+$lang['residential']='Residential';
 ?>

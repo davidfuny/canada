@@ -1,35 +1,50 @@
 <?php
 require ('header.php')
 ?>
-<div class="mobile_section">
-    <div class="imgcontainer">
+<style>
+    div.gallery {
+        margin-left: 10%;
+        margin-top: 5%;
+        border: 1px solid #ccc;
+        float: left;
+        width: 20%;
+    }
 
-        <p><img class="police" src="<?php echo base_url(); ?>assets/images/police.png" alt="" ></p>
-        <form class='form' action="" method="post">
-            <div class="container">
-                <div class="container">
+    div.gallery:hover {
+        border: 1px solid #777;
+    }
+
+    div.gallery img {
+        width: 100%;
+        height: 300px;
+
+    }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+
                     <?php
                     foreach ($someObjects as $someObject ){?>
 
-                        <div class="image">
-                            <img src=<?=$someObject->url?> alt="Avatar" class="avatar">
+                        <div class="gallery">
+                            <a  href=<?=$someObject->url?>>
+                                <img style="border: 0;" src=<?=$someObject->url?>  width="600" height="400"/>
+                            </a>
+                            <div class="desc">Add a description of the image here</div>
                         </div>
-
-
                         <?php
                     }
                     ?>
 
-                </div>
 
-            </div>
-
-
-
-    </div></form>
+<div style="clear: both">
 
 </div>
-</div>
+
+
 
 <?php
 require ('footer.php')

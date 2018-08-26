@@ -27,14 +27,27 @@ class Welcome extends CI_Controller {
 
         $this->load->library('session');
         if(!(isset($_SESSION["language"]))){
-            $_SESSION["language"]='english';
+            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            if ($lang=='zh'){
+                $_SESSION["language"]='chinese';
+            }
+            else{
+                $_SESSION["language"]='english';
+            }
+
         }
     }
 	public function index($dat='')
 
 	{
 	    if ($dat==''){
-            session_destroy();
+            $lang=$_SESSION["language"];
+            $this->session->unset_userdata('language');
+            if(isset($_SESSION["user_name"])){
+                $this->session->unset_userdata('user_name');
+            }
+
+            $_SESSION["language"]=$lang;
             $this->load->view('index.php');
         }
 //        if login false

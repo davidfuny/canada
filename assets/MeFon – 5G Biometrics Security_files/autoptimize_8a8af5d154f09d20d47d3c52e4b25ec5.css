@@ -994,7 +994,7 @@ code, kbd, pre, samp {
 button, input, optgroup, select, textarea {
     color: inherit;
     font: inherit;
-    margin: 0
+    /*margin: 0*/
 }
 
 select {
