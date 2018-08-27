@@ -37,4 +37,7 @@ $lang['logout']="退出";
 $lang['down_apk']='下载 apk.';
 $lang['privacy']='privacy_cn.php';
 $lang['residential']='居住地';
+$lang['street_adderss']='居住街';
+$lang['zip_code']='邮编';
+$lang['please_select']='请您选择！';
 ?>

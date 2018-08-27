@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png">
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 </head>
 <body>

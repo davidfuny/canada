@@ -2,103 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdc1a86a-660c-4bae-a5fb-beeb921f804f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/adress.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/address.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/add-to-cart.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/autocomplete_solr.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/bootstrap-typeahead.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/bootstrap.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/cart-fragments.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/chosen.jquery.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/dropdown.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/front.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/functions.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/imagesloaded.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/intlTelInput.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/intlTelInput.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/jquery-migrate.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/jquery.blockUI.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/jquery.form.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/jquery.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/jquery.masonry.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/js.cookie.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/legacy.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/loadingoverlay.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/masonry.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/particles.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/picker.date.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/picker.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/picker.time.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/plugins.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/scripts.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/select2.full.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-account.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-conditional.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-crop.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-fileupload.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-functions.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-gdpr.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-jquery-form.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-members.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-modal.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-profile.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-raty.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-responsive.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-scripts.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-scrollbar.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-scrollto.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/um-tipsy.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/url.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/webfontloader.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/woocommerce.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/wp-date-remover-public.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/wp-embed.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/Register – Mefon_files/wp-emoji-release.min.js.download" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.bcvxbcx.cvbxcv.bbbbb.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.boy01.bigbig.v3k8j8.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.fdsafdsaf.sdfsaf.hfdhdfg.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.gdfsgdsg.gdsgdsfg.gdsfgdfgsdfgds.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.gdfsgsdgf.ertewrtfds.dddggggdf55.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.gdsgdsg.gdfgsd.tewttrewtewrt.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.gfdgfdsgfsd.qqqqqq.54234524.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.gfdsgdsfgs.fgdsfgdafg.hgfhghgfhgfsd.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.gfdsgs.ghsdfgfsdg.75456756.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.haoren.zhangman.zhangmanhao.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.hgfdhdfh.hfdhg.gfdgsdfg.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.nnnn.ytrye.33333.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.rweqrwqerewq.rewrwerqw.ghgdgdsg.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.tret.tre.11111.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.tretwer.trewter.fgasddfgsd.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.yrey.y.hhgdfhgd.af" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.yrey.yydf.77777.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.yrey.yydf.78463.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/af.ytrye.ytrye.ddddd.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/ai.zhangyang.gfdssdg.100000.ar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/ao.girl.big.54188.bs.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/aq.ytrye.ytryeutyutyur.ddddd.af.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/at.band.jameso.7777777.bd.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/aw.haorong.kim.100000000000.ke.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/ax.uoooo.uytuytut.867876.ar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/bs.yangman.gfyhdfhdf.100.ro.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/cn.manyue.zhang.777666.dk.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/cw.kljklhjkl.ighfjfgj.45654.as.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/de.haorong.kim.100000000000.na.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/ne.fghdfghdfgh.fdsafsagdfg.100.ar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/nr.fuhsan.kim.100000.ar.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/py.test.finaltest.123456.si.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/user_images/sy.kkkkkk.musujin.100000.li.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Register.php" afterPath="$PROJECT_DIR$/application/controllers/Register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Welcome.php" afterPath="$PROJECT_DIR$/application/controllers/Welcome.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/chinese/content_lang.php" afterPath="$PROJECT_DIR$/application/language/chinese/content_lang.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/english/content_lang.php" afterPath="$PROJECT_DIR$/application/language/english/content_lang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User.php" afterPath="$PROJECT_DIR$/application/models/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/adress.php" afterPath="$PROJECT_DIR$/application/views/adress.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/image.php" afterPath="$PROJECT_DIR$/application/views/image.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/register/index.php" afterPath="$PROJECT_DIR$/application/views/register/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/user.php" afterPath="$PROJECT_DIR$/application/views/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/MeFon – 5G Biometrics Security_files/autoptimize_8a8af5d154f09d20d47d3c52e4b25ec5.css" afterPath="$PROJECT_DIR$/assets/MeFon – 5G Biometrics Security_files/autoptimize_8a8af5d154f09d20d47d3c52e4b25ec5.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/regi_style.css" afterPath="$PROJECT_DIR$/assets/css/regi_style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,21 +20,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/register/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="183" column="94" lean-forward="false" selection-start-line="183" selection-start-column="86" selection-end-line="183" selection-end-column="94" />
+            <state relative-caret-position="-5151">
+              <caret line="157" column="54" lean-forward="false" selection-start-line="157" selection-start-column="54" selection-end-line="157" selection-end-column="54" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1535290309294" expanded="true" signature="4365:4459" ph="..." />
-                <marker date="1535290309294" expanded="true" signature="4549:4644" ph="..." />
-                <marker date="1535290309294" expanded="true" signature="4734:4829" ph="..." />
+                <marker date="1535356384554" expanded="true" signature="4450:4544" ph="..." />
+                <marker date="1535356384554" expanded="true" signature="4634:4729" ph="..." />
+                <marker date="1535356384554" expanded="true" signature="4819:4914" ph="..." />
               </folding>
             </state>
           </provider>
@@ -133,34 +39,18 @@
       <file leaf-file-name="content_lang.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/language/chinese/content_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="567">
+              <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-              <folding>
-                <marker date="1535293810210" expanded="true" signature="1056:1119" ph="..." />
-                <marker date="1535293810210" expanded="true" signature="1056:1120" ph="..." />
-                <marker date="1535293810210" expanded="true" signature="1056:1190" ph="..." />
-                <marker date="1535293810210" expanded="true" signature="1202:1232" ph="..." />
-                <marker date="1535293810210" expanded="true" signature="1244:1277" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="address.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/address.js">
+      <file leaf-file-name="content_lang.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/language/english/content_lang.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="575">
-              <caret line="97" column="47" lean-forward="false" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -169,8 +59,8 @@
       <file leaf-file-name="Register.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="270" column="45" lean-forward="true" selection-start-line="270" selection-start-column="45" selection-end-line="270" selection-end-column="45" />
+            <state relative-caret-position="280">
+              <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -179,8 +69,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2353">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+            <state relative-caret-position="395">
+              <caret line="216" column="23" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="216" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -189,11 +79,25 @@
       <file leaf-file-name="image.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/image.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="44" selection-end-column="6" />
+            <state relative-caret-position="341">
+              <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1535354146318" expanded="true" signature="2850:2857" ph="×" />
+                <marker date="1535354146318" expanded="true" signature="2925:3290" ph="..." />
+                <marker date="1535354146318" expanded="true" signature="3311:3389" ph="..." />
+                <marker date="1535354146318" expanded="true" signature="3439:3523" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Welcome.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,10 +105,11 @@
       <file leaf-file-name="adress.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/adress.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="168" selection-end-column="9" />
+            <state relative-caret-position="380">
+              <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
               <folding>
-                <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#2975#2982#1#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -222,12 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>css</find>
-      <find>modal</find>
-      <find>nav</find>
-      <find>background-size:</find>
-      <find>ul</find>
-      <find>wrapper</find>
       <find>textwidget</find>
       <find>dropdown-content</find>
       <find>form</find>
@@ -250,8 +149,14 @@
       <find>site-footer</find>
       <find>#username-58</find>
       <find>intl-tel-input allow-dropdown</find>
-      <find>validate</find>
       <find>send</find>
+      <find>validate</find>
+      <find>myBtn</find>
+      <find>Street Address</find>
+      <find>City</find>
+      <find>pro</find>
+      <find>居住街</find>
+      <find>Enter</find>
     </findStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\jianada</dir>
@@ -272,25 +177,25 @@
         <option value="$PROJECT_DIR$/application/views/register/privacy_eng.php" />
         <option value="$PROJECT_DIR$/assets/Register – Mefon_files/intlTelInput.css" />
         <option value="$PROJECT_DIR$/application/views/footer.php" />
-        <option value="$PROJECT_DIR$/application/views/header.php" />
         <option value="$PROJECT_DIR$/application/views/register/active.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/views/register/validate.php" />
         <option value="$PROJECT_DIR$/application/views/index.php" />
         <option value="$PROJECT_DIR$/application/controllers/Language.php" />
         <option value="$PROJECT_DIR$/application/controllers/Welcome.php" />
-        <option value="$PROJECT_DIR$/application/views/adress.php" />
         <option value="$PROJECT_DIR$/application/views/user.php" />
-        <option value="$PROJECT_DIR$/application/views/image.php" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/application/language/chinese/content_lang.php" />
-        <option value="$PROJECT_DIR$/application/language/english/content_lang.php" />
         <option value="$PROJECT_DIR$/assets/js/address.js" />
         <option value="$PROJECT_DIR$/assets/MeFon – 5G Biometrics Security_files/autoptimize_8a8af5d154f09d20d47d3c52e4b25ec5.css" />
-        <option value="$PROJECT_DIR$/application/views/register/index.php" />
         <option value="$PROJECT_DIR$/assets/css/regi_style.css" />
         <option value="$PROJECT_DIR$/application/controllers/Register.php" />
         <option value="$PROJECT_DIR$/application/models/User.php" />
+        <option value="$PROJECT_DIR$/application/views/header.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/application/views/adress.php" />
+        <option value="$PROJECT_DIR$/application/views/image.php" />
+        <option value="$PROJECT_DIR$/application/language/english/content_lang.php" />
+        <option value="$PROJECT_DIR$/application/language/chinese/content_lang.php" />
+        <option value="$PROJECT_DIR$/application/views/register/index.php" />
       </list>
     </option>
   </component>
@@ -351,6 +256,12 @@
               <item name="cana_ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="cana_ui" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="cana_ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cana_ui" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="language" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -382,6 +293,13 @@
             <path>
               <item name="cana_ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="cana_ui" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="register" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="cana_ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cana_ui" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -394,8 +312,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -465,12 +383,13 @@
       <workItem from="1534844300410" duration="1579000" />
       <workItem from="1534998861419" duration="11328000" />
       <workItem from="1535098622070" duration="1425000" />
-      <workItem from="1535264327009" duration="17918000" />
+      <workItem from="1535264327009" duration="19822000" />
+      <workItem from="1535346722085" duration="8356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218711000" />
+    <option name="totallyTimeSpent" value="228971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -666,13 +585,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/Register – Mefon_files/intlTelInput.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="0" column="20059" lean-forward="false" selection-start-line="0" selection-start-column="20059" selection-end-line="0" selection-end-column="20059" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/Register – Mefon_files/intlTelInput.css" />
     <entry file="file://$PROJECT_DIR$/application/views/register/privacy_cn.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -731,22 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -771,55 +668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2353">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adress.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="168" selection-end-column="9" />
-          <folding>
-            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/english/content_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/address.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="97" column="47" lean-forward="false" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/MeFon – 5G Biometrics Security_files/autoptimize_8a8af5d154f09d20d47d3c52e4b25ec5.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="996" column="0" lean-forward="false" selection-start-line="996" selection-start-column="0" selection-end-line="996" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="44" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -827,47 +679,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="896">
           <caret line="160" column="1" lean-forward="true" selection-start-line="160" selection-start-column="1" selection-end-line="160" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/chinese/content_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/register/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="183" column="94" lean-forward="false" selection-start-line="183" selection-start-column="86" selection-end-line="183" selection-end-column="94" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1535290309294" expanded="true" signature="4365:4459" ph="..." />
-            <marker date="1535290309294" expanded="true" signature="4549:4644" ph="..." />
-            <marker date="1535290309294" expanded="true" signature="4734:4829" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="270" column="45" lean-forward="true" selection-start-line="270" selection-start-column="45" selection-end-line="270" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="800">
           <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
           <folding>
             <marker date="1535293810210" expanded="true" signature="1056:1119" ph="..." />
@@ -875,6 +692,101 @@
             <marker date="1535293810210" expanded="true" signature="1056:1190" ph="..." />
             <marker date="1535293810210" expanded="true" signature="1202:1232" ph="..." />
             <marker date="1535293810210" expanded="true" signature="1244:1277" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="83" lean-forward="false" selection-start-line="4" selection-start-column="83" selection-end-line="4" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="216" column="23" lean-forward="true" selection-start-line="216" selection-start-column="23" selection-end-line="216" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/address.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="90" column="35" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/adress.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2975#2982#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1535354146318" expanded="true" signature="2850:2857" ph="×" />
+            <marker date="1535354146318" expanded="true" signature="2925:3290" ph="..." />
+            <marker date="1535354146318" expanded="true" signature="3311:3389" ph="..." />
+            <marker date="1535354146318" expanded="true" signature="3439:3523" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/content_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/chinese/content_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="41" column="31" lean-forward="true" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/register/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5151">
+          <caret line="157" column="54" lean-forward="false" selection-start-line="157" selection-start-column="54" selection-end-line="157" selection-end-column="54" />
+          <folding>
+            <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1535356384554" expanded="true" signature="4450:4544" ph="..." />
+            <marker date="1535356384554" expanded="true" signature="4634:4729" ph="..." />
+            <marker date="1535356384554" expanded="true" signature="4819:4914" ph="..." />
           </folding>
         </state>
       </provider>
