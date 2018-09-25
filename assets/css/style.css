@@ -2,7 +2,7 @@ body {
     margin: 0;
     background: #f0f5f9 !important;
     overflow-x: hidden !important;
-    font-family: 'Proxima Nova Rg';}
+    font-family: 'Proxima Nova thin';}
 /*form {border: 3px solid #f1f1f1;}*/
 
 input[type=text], input[type=password] {
@@ -56,7 +56,7 @@ button:hover {
     text-align: center;
     width: 32.1%;
     margin: auto;
-    background: url(//mefon.ca/wp-content/themes/mefon/images/phone-img.png);
+    background: url('../images/phone.png');
     background-size: 100% 100%;
     overflow: hidden;
     padding: 75px 19px 95px;
@@ -196,7 +196,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: hsl(180, 100%, 40%);
 }
 
 li.dropdown {

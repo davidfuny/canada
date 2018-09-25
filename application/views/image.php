@@ -112,19 +112,20 @@ require ('header.php')
 </style>
 
                     <?php
-                    $j=0;
-                    foreach ($someObjects as $someObject ){
-                       $j=$j+1;
-                        ?>
+                    if(isset($someObjects)){
+                        $j=0;
+                        foreach ($someObjects as $someObject ){
+                           $j=$j+1;
+                            ?>
 
-                        <div class="gallery">
+                            <div class="gallery">
 
-                                <img id="myImg<?=$j?>" style="border: 0;" src="<?=$someObject->url?>" onclick="show(<?=$j?>)" class="image" width="600" height="400"/>
+                                    <img id="myImg<?=$j?>" style="border: 0;" src="<?=$someObject->url?>" onclick="show(<?=$j?>)" class="image" width="600" height="400"/>
 
-                            <div class="desc">Add a description of the image here</div>
-                        </div>
-                        <?php
-                    }
+                                <div class="desc">Add a description of the image here</div>
+                            </div>
+                            <?php
+                        }}
                     ?>
 
 

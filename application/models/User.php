@@ -16,25 +16,41 @@ class User extends CI_Model{
         return 'True';
 
     }
+    public function get_user($user){
+        $query = $this->db->where('user_name', $user)->get('user');
+        return $query->result();
+
+
+    }
+    public function update_user($data){
+        $query = $this->db->where('user_name', $_SESSION["user_name"])->update('user',$data);
+
+            return true;
+    }
+    public function update_pass($data){
+        $query = $this->db->where('user_name', $_SESSION["user_name"])->update('user',$data);
+
+        return true;
+    }
     public function sendmail($data){
 //        $this->load->library('encrypt');
         $account=$data['user_name'];
         $to=$data['user_email'];
         $config['smtp_crypto'] = 'tls';
         $config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'smtp.outlook.com';
+        $config['smtp_host'] = 'smtp.office365.com';
         $config['smtp_port'] = '587';
-        $config['smtp_user'] = 'zzz@outlook.com';
-        $config['smtp_pass'] = 'admin1987';
+        $config['smtp_user'] = 'admin@mefon.ca';
+        $config['smtp_pass'] = 'M3fon@2018';
         $config['mailtype'] = 'html';
-        $config['charset'] = 'iso-8859-1';
+        $config['charset'] = 'utf-8';
         $config['wordwrap'] = 'TRUE';
         $config['newline'] = "\r\n";
         $config['crlf'] = "\r\n";
 
         $this->email->initialize($config);
-        //Email content
-        $htmlContent = '<h1>Hi! '.$account.'</h1><p>Thank you for registering with Mefon, please use your userID - '.$account.' to login the website and mobile application. 
+        if($data['language']=='en'){
+            $htmlContent = '<h1>Hi! '.$account.'</h1><p>Thank you for registering with Mefon, please use your userID - '.$account.' to login the website and mobile application. 
         </p>
         <p>
         Thanks & Regards,</p>
@@ -42,8 +58,21 @@ class User extends CI_Model{
         Mefon team
 
         </p>';
+        }
+        else{
+            $htmlContent = '<h1>您好! '.$account.'</h1><p>谢谢您注册Mefon, 请您用 '.$account.' 用户名来登录我们的网站。
+        </p>
+        <p>
+        敬礼</p>
+        <p>
+        Mefon team
 
-        $from='zzz@outlook.com';
+        </p>';
+        }
+        //Email content
+
+
+        $from='admin@mefon.ca';
         $this->email->to($to);
         $this->email->from($from, 'Mefon');
         $this->email->subject('Register Mefon');
@@ -53,7 +82,7 @@ class User extends CI_Model{
         if ($this->email->send()) {
           return true;
         } else {
-            echo('failed');
+            return false;
         }
 
     }

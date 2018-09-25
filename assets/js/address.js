@@ -39,13 +39,25 @@ function fillInAddress() {
 
     // Get each component of the address from the place details
     // and fill the corresponding field on the form.
+    var street_number='';
+    var route='';
     for (var i = 0; i < place.address_components.length; i++) {
         var addressType = place.address_components[i].types[0];
         if (componentForm[addressType]) {
             var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
+            if(addressType=='street_number'){
+                 street_number=val;
+            }
+            else if(addressType=='route'){
+                route=val;
+            }
+            else{
+                document.getElementById(addressType).value = val;
+            }
+
         }
     }
+    document.getElementById('street_number').value = street_number+' '+route;
     var country = jQuery('#country').val();
     if(country=='China'){
         jQuery(".selected-flag:eq(1)").attr( "title",'China (中国): +86');

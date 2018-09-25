@@ -44,7 +44,7 @@ class Register  extends CI_Controller{
     {
         if (isset($_POST['mobile_number'])) {
             $mobile_number = $_POST['mobile_number'];
-            $street = $_POST['street'];
+
             $zip_code=$_POST['zip_code'];
             $load_address=$_POST['load_address'];
             $province = $_POST['province'];
@@ -59,20 +59,22 @@ class Register  extends CI_Controller{
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $user_email = $_POST['user_email'];
-            $user_password = $_POST['user_password'];
-            $confirm_user_password = $_POST['confirm_user_password'];
+            $user_apt = $_POST['apt'];
+//            $user_password = $_POST['user_password'];
+//            $confirm_user_password = $_POST['confirm_user_password'];
             $user_name=strtolower($nationality.'.'.$last_name.'.'.$first_name.'.'.$post_code.'.'.$country_birth);
 
 //
 //          upload profile image
 
 
-            $file_path='assets/user_images/'.$user_name.'.jpg';
+            $image_path='assets/user_images/'.$user_name.'.jpg';
+            $file_path = iconv("utf-8", "cp936", 'assets/user_images/'.$user_name.'.jpg');
             if(file_exists($file_path)){
                 unlink($file_path);
             }
             if(move_uploaded_file($_FILES["image"]["tmp_name"],$file_path)){
-                $image_url=str_replace("index.php/","",site_url($file_path));
+                $image_url=str_replace("index.php/","",site_url($image_path));
             }
 
             $generateUrl = "https://auth.miniorange.com/moas/api/auth/challenge";
@@ -122,9 +124,9 @@ class Register  extends CI_Controller{
                 $_SESSION["first_name"] = $first_name;
                 $_SESSION["last_name"] = $last_name;
                 $_SESSION["user_email"] = $user_email;
-                $_SESSION["user_password"] = $user_password;
+                $_SESSION["user_apt"] = $user_apt;
                 $_SESSION["mobile_number"] = $mobile_number;
-                $_SESSION["street"] =$street;
+
                 $_SESSION["province"] = $province;
                 $_SESSION["country"] = $country;
                 $_SESSION["user_language"] = $language;
@@ -144,7 +146,8 @@ class Register  extends CI_Controller{
         }
 //
         else{
-            redirect('/register/index', 'refresh');
+//            redirect('/register/index', 'refresh');
+            $this->load->view('register/validate.php');
         }
 
     }
@@ -196,10 +199,10 @@ class Register  extends CI_Controller{
             $response = (array)json_decode($result);
             $status = $response['status'];
             if($status == 'SUCCESS') {
-
 //            send register request to java site
                 $data = array("login" => $_SESSION["account_name"], "firstName" => $_SESSION["first_name"], "lastName" =>$_SESSION["last_name"], "email" =>  $_SESSION["user_email"],"password" => $_SESSION["user_password"],"phone" =>  $_SESSION["mobile_number"],"imageUrl" =>$_SESSION["image_url"],"langKey" => $_SESSION["user_language"],"activated"=>"true");
-                $data_string = json_encode($data);
+                $data_string = json_encode($data,JSON_UNESCAPED_UNICODE);
+
                 $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/register');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -209,11 +212,17 @@ class Register  extends CI_Controller{
                     'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
 //    die($ch);
                 $result = curl_exec($ch);
+
                 $sss = json_decode($result);
-//    echo ($result);
                 if (isset($sss->{'message'})) {
-                    session_destroy();
-                    $error['register']=$sss->{'message'};
+                    if ($_SESSION["language"]=='chinese'){
+                        $error['register']="用户已存在或者邮件重复使用。";
+                    }
+                    else{
+                        $error['register']="The user exists or the email address has been registered with Mefon";
+                    }
+//                    session_destroy();
+
                     $this->load->view('register/index.php',$error);
 
                 } else {
@@ -222,12 +231,10 @@ class Register  extends CI_Controller{
                     $data1['first_name']=$_SESSION["first_name"] ;
                     $data1['last_name']=$_SESSION["last_name"];
                     $data1['user_email']=$_SESSION["user_email"];
-                    $data1['pass']=$_SESSION["user_password"];
+                    $data1['apt']=$_SESSION["user_apt"];
                     $data1['mobile_number']=$_SESSION["mobile_number"];
                     $data1['zip_code']=$_SESSION["zip_code"];
                     $data1['load_address']=$_SESSION["load_address"];
-
-                    $data1['street']=$_SESSION["street"];
                     $data1['province']=$_SESSION["province"];
                     $data1['country']=$_SESSION["country"] ;
                     $data1['language']=$_SESSION["user_language"];
@@ -239,10 +246,14 @@ class Register  extends CI_Controller{
                     $result=$this->user->add_user($data1);
                     if ($result=='True'){
                         $email=$this->user->sendmail($data1);
+//                        send email is success
                         if($email){
                             $dat='success';
                             redirect('/welcome/index/'.$dat);
 
+                        }else{
+                            $dat='email_faild';
+                            redirect('/welcome/index/'.$dat);
                         }
 
                     }
@@ -262,21 +273,80 @@ class Register  extends CI_Controller{
 
     }
     public function sendmail(){
-        $data['user_name']='im';
-        $data['user_email']='star1987lei@gmail.com';
-        $this->load->model('user');
-        $email=$this->user->sendmail($data);
-        if($email){
-            $dat='success';
-            redirect('/welcome/index/'.$dat);
+        $account='公司';
+        $to='star1987lei@gmail.com';
+        $config['smtp_crypto'] = 'tls';
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'smtp.office365.com';
+        $config['smtp_port'] = '587';
+        $config['smtp_user'] = 'admin@mefon.ca';
+        $config['smtp_pass'] = 'M3fon@2018';
+        $config['mailtype'] = 'html';
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = 'TRUE';
+        $config['newline'] = "\r\n";
+        $config['crlf'] = "\r\n";
 
+        $this->email->initialize($config);
+        //Email content
+        $htmlContent = '<h1>Hi! '.$account.'</h1><p>Thank you for registering with Mefon, please use your userID - '.$account.' to login the website and mobile application. 
+        </p>
+        <p>
+        Thanks & Regards,</p>
+        <p>
+        Mefon team
+
+        </p>';
+
+        $from='admin@mefon.ca';
+        $this->email->to($to);
+        $this->email->from($from, 'Mefon');
+        $this->email->subject('Register Mefon');
+        $this->email->message($htmlContent);
+
+        //Send email
+        if ($this->email->send()) {
+            echo('ok') ;
+        } else {
+            echo('false') ;
         }
+
     }
 
-    public function browser(){
-//        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-//        echo ($lang);
-        $this->load->view('adress.php');
+
+    public function test()
+    {
+        $file_path = 'assets/user_images/法国.jpg';
+        $image_url=str_replace("index.php/","",site_url($file_path));
+        echo($image_url);
+
+//        $xx = utf8_decode('灌水灌水');
+//
+//        $_SESSION["account_name"] = 'dd公司.公司的.fs.5324';
+//        $_SESSION["first_name"] = '灌水灌水';
+//        $_SESSION["last_name"] = '火热';
+//
+////        $data = array("login" => iconv("utf-8", "cp936",$_SESSION["account_name"]), "firstName" => iconv("utf-8", "cp936",$_SESSION["first_name"]), "lastName" =>iconv("utf-8", "cp936",$_SESSION["last_name"]), "email" =>  'oikgdo@uio.cojh',"password" => '79798',"phone" =>  '68687689687',"imageUrl" =>$file,"langKey" => 'zh-cn',"activated"=>"true");
+//        $data = array("login" => $_SESSION["account_name"], "firstName" => '工会', "lastName" => '给给', "email" => 'oikgdo@uytryeioty.cojh', "password" => '79798', "phone" => '68687689687', "imageUrl" => utf8_decode('tiyti.给i.png'), "langKey" => 'zh-cn', "activated" => "true");
+////      $data_string=preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
+//
+//        $data_string = json_encode($data);
+//        echo($data_string);
+//        $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/register');
+//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+//            'Content-Type: application/json',
+//            'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
+//
+//        $result = curl_exec($ch);
+//        echo($result);
+
+
     }
+
+
+
 }
 

@@ -1,5 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif;margin: 0;}
-
+body {font-family: Proxima Nova Condensed Light , Proxima Nova Condensed Light, Proxima Nova Condensed Light;margin: 0;} 
 
 input[type=text], input[type=email] ,input[type=number]{
     width: 100%;
@@ -101,7 +100,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: hsl(180, 100%, 40%);
 }
 
 li.dropdown {
@@ -193,11 +192,45 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
+@media only screen and (max-device-width: 1069px){
+    .container .um-col-1{
+
+        clear: both;
+        margin:auto;
+        width: 96%;
+
+    }
+    body form{
+        width: 96%;
+        margin-left: 2%;
+        margin-top: 20px;
+    }
+    div #confirm{
+        width: 80%;
+        clear: both;
+    }
+    div .inputfile + label {
+        max-width:100%;
+        margin: auto;
+        padding: 2% 35%;
+        /* 10px 20px */
+    }
+    body .modal-content{
+        width: 90%;
+        height: 400px;
+    }
+    body .modal{
+        padding-top: 50px;
+    }
+    body .modal-body{
+        height: 300px;
+    }
+}
 .um-col-1{
-    float: left;
-    margin-left: 1%;
-    margin-right: 1%;
-    width: 48%;
+float: left;
+margin-left: 1%;
+margin-right: 1%;
+width: 48%;!important;
 
 }
 select{

@@ -58,6 +58,13 @@ class Welcome extends CI_Controller {
 //        if register success
         if ($dat=='success'){
             $data['register']=$_SESSION["account_name"];
+            $data['email']=$_SESSION["user_email"];
+            session_destroy();
+            $this->load->view('index.php',$data);
+        }
+        if ($dat=='email_faild'){
+            $data['email_faild']=$_SESSION["account_name"];
+            $data['email']=$_SESSION["user_email"];
             session_destroy();
             $this->load->view('index.php',$data);
         }
@@ -67,10 +74,10 @@ class Welcome extends CI_Controller {
     public function login()
     {
 
-//        if(isset($_SESSION["user_name"])){
-//            $this->load->view('user.php');
-//        }
-
+        if(isset($_SESSION["user_name"])){
+            $this->load->view('user.php');
+        }
+        else{
             if (isset($_POST['uname'])) {
                 $username = $_POST['uname'];
                 $pass = $_POST['psw'];
@@ -84,26 +91,54 @@ class Welcome extends CI_Controller {
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                     'Content-Type: application/json',
                     'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
-    //    die($ch);
+                //    die($ch);
                 $result = curl_exec($ch);
                 $sss = json_decode($result);
-    //    echo ($result);
+                //    echo ($result);
                 if (isset($sss->{'access_token'})) {
                     $access_token = $sss->{'access_token'};
                     $refresh_token = $sss->{'refresh_token'};
                     $_SESSION["access_token"] = $access_token;
                     $_SESSION["refresh_token"] = $refresh_token;
                     $_SESSION["user_name"] = $username;
+                    $this->load->model('user');
+                    $results=$this->user->get_user($username);
+                    if(!empty($results[0]->language)){
+                        if($results[0]->language=='en'){
+                            $_SESSION["language"]='english';
+                            $_SESSION["apt"] = $results[0]->apt;
+                            $_SESSION["city"] = $results[0]->city;
+                            $_SESSION["load_address"] =$results[0]->load_address;
+                            $_SESSION["zip_code"] =$results[0]->zip_code;
+                            $_SESSION["country"] =$results[0]->country;
+                            $_SESSION["province"] = $results[0]->province;
+                            $_SESSION["pass"] = $results[0]->pass;
+                        }
+                        else{
+                            $_SESSION["language"]='chinese';
+                            $_SESSION["apt"] = $results[0]->apt;
+                            $_SESSION["city"] = $results[0]->city;
+                            $_SESSION["load_address"] =$results[0]->load_address;
+                            $_SESSION["zip_code"] =$results[0]->zip_code;
+                            $_SESSION["country"] =$results[0]->country;
+                            $_SESSION["province"] = $results[0]->province;
+                            $_SESSION["pass"] = $results[0]->pass;
+                        }
+
+                    }
+
                     $this->load->view('user.php');
                 } else {
                     $dat='false';
                     redirect('/welcome/index/'.$dat);
-    //                header( 'Location: index.php?message=false') ;
+                    //                header( 'Location: index.php?message=false') ;
 
                 }
             }
-        else{
-            redirect('/welcome/index', 'refresh');
+            else{
+                redirect('/welcome/index', 'refresh');
+            }
+
         }
 
     }
@@ -121,8 +156,15 @@ class Welcome extends CI_Controller {
             curl_setopt($ch, CURLOPT_COOKIE, 'access_token=' . $access_token . ';refresh_token=' . $refresh_token);
             $results = curl_exec($ch);
             $var2 = (string)$results;
-            $data['someObjects'] = json_decode($var2);
-            $this->load->view('image.php',$data);
+            if($var2==""){
+                $this->load->view('image.php');
+            }
+            else{
+                $data['someObjects'] = json_decode($var2);
+                $this->load->view('image.php',$data);
+            }
+
+
         }
         else{
             redirect('/welcome/index', 'refresh');
@@ -132,5 +174,109 @@ class Welcome extends CI_Controller {
     {
         session_destroy();
         redirect('/welcome/index/');
+    }
+    public function change_address()
+    {
+        if (isset($_SESSION["user_name"])){
+            $this->load->view('profile/change_address.php');
+        }
+        else{
+            redirect('/welcome/index', 'refresh');
+        }
+
+    }
+    public function change_password()
+    {
+        if (isset($_SESSION["user_name"])){
+            $this->load->view('profile/change_password.php');
+        }
+        else{
+            redirect('/welcome/index', 'refresh');
+        }
+
+    }
+    public function update_address()
+    {
+        if (isset($_SESSION["user_name"])){
+            if(isset($_POST["zip_code"])){
+                $this->load->model('user');
+                $data['apt']=$_POST["apt"];
+                $data['zip_code']=$_POST["zip_code"];
+                $data['load_address']=$_POST["load_address"];
+                $data['province']=$_POST["province"];
+                $data['country']=$_POST["country"] ;
+                $data['city']=$_POST["city"] ;
+                $result=$this->user->update_user($data);
+                if($result){
+                    $_SESSION["apt"] = $data['apt'];
+                    $_SESSION["city"] =$data['city'];
+                    $_SESSION["load_address"] =$data['load_address'];
+                    $_SESSION["zip_code"] =$data['zip_code'];
+                    $_SESSION["country"] =$data['country'];
+                    $_SESSION["province"] = $data['province'];
+                    $status['status']='success';
+                    $this->load->view('profile/change_address.php',$status);
+
+                }
+                else{
+                    $status['status']='false';
+                    $this->load->view('profile/change_address.php',$status);
+                }
+            }
+            else{
+                $this->load->view('profile/change_address.php');
+            }
+
+
+
+
+        }
+        else{
+            redirect('/welcome/index', 'refresh');
+        }
+
+    }
+    public function update_password()
+    {
+        if (isset($_SESSION["user_name"])){
+            if(isset($_POST['new_pass'])){
+                $data_string=$_POST['new_pass'];
+                $access_token = $_SESSION["access_token"];
+                $refresh_token = $_SESSION["refresh_token"];
+                $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/account/change-password');
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_COOKIE, 'access_token=' . $access_token . ';refresh_token=' . $refresh_token);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
+                //    die($ch);
+                $result = curl_exec($ch);
+                if($result==""){
+                    $this->load->model('user');
+                    $data['pass']=$_POST['new_pass'];
+                    $_SESSION["pass"]=$_POST['new_pass'];
+                    $status=$this->user->update_pass($data);
+                    if($status){
+                        $update['status']='ok';
+                        $this->load->view('profile/change_password.php',$update);
+                    }
+                }
+                else{
+                    $update['status']='false';
+                    $this->load->view('profile/change_password.php',$update);
+                }
+
+            }
+            else{
+                $this->load->view('profile/change_password.php');
+            }
+
+        }
+        else{
+            redirect('/welcome/index', 'refresh');
+        }
+
     }
 }
