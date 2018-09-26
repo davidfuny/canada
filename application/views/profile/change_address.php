@@ -11,6 +11,13 @@ $this->load->view('header.php')
         margin-left: 30%;
         margin-top: 20px;
     }
+    @media only screen and (max-device-width: 1069px) {
+        form {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 20px;
+        }
+    }
 
 </style>
 <form method="post" action="<?php echo site_url('welcome/update_address') ?>" enctype="multipart/form-data">

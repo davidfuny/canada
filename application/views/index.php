@@ -72,7 +72,7 @@
     </div>
 <!--<div id="myModal" class="modal" style="display: block">-->
 <!---->
-<!--    <!-- Modal content -->-->
+<!--    <!-- Modal content -->
 <!--    <div class="modal-content">-->
 <!--        <div class="modal-body">-->
 <!--            <br/>-->

@@ -60,7 +60,7 @@ class Register  extends CI_Controller{
             $last_name = $_POST['last_name'];
             $user_email = $_POST['user_email'];
             $user_apt = $_POST['apt'];
-//            $user_password = $_POST['user_password'];
+            $user_password = $_POST['user_password'];
 //            $confirm_user_password = $_POST['confirm_user_password'];
             $user_name=strtolower($nationality.'.'.$last_name.'.'.$first_name.'.'.$post_code.'.'.$country_birth);
 
@@ -126,8 +126,8 @@ class Register  extends CI_Controller{
                 $_SESSION["user_email"] = $user_email;
                 $_SESSION["user_apt"] = $user_apt;
                 $_SESSION["mobile_number"] = $mobile_number;
-
                 $_SESSION["province"] = $province;
+                $_SESSION["user_password"] = $user_password;
                 $_SESSION["country"] = $country;
                 $_SESSION["user_language"] = $language;
                 $_SESSION["city"] = $city;
@@ -212,7 +212,6 @@ class Register  extends CI_Controller{
                     'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
 //    die($ch);
                 $result = curl_exec($ch);
-
                 $sss = json_decode($result);
                 if (isset($sss->{'message'})) {
                     if ($_SESSION["language"]=='chinese'){

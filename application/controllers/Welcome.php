@@ -113,7 +113,7 @@ class Welcome extends CI_Controller
                             $_SESSION["zip_code"] = $results[0]->zip_code;
                             $_SESSION["country"] = $results[0]->country;
                             $_SESSION["province"] = $results[0]->province;
-                            $_SESSION["pass"] = $results[0]->pass;
+
                         } else {
                             $_SESSION["language"] = 'chinese';
                             $_SESSION["apt"] = $results[0]->apt;
@@ -122,7 +122,7 @@ class Welcome extends CI_Controller
                             $_SESSION["zip_code"] = $results[0]->zip_code;
                             $_SESSION["country"] = $results[0]->country;
                             $_SESSION["province"] = $results[0]->province;
-                            $_SESSION["pass"] = $results[0]->pass;
+
                         }
 
                     }

@@ -6913,7 +6913,7 @@ span.posted-on a, span.comments-link a {
 .iti-flag {
     height: 15px;
     box-shadow: 0 0 1px 0 #888;
-    background-image: url(//mefon.ca/wp-content/plugins/miniorange-otp-verification/includes/css/../images/flags.png);
+    background-image: url(../images/flags.png);
     background-repeat: no-repeat;
     background-color: #dbdbdb;
     background-position: 20px 0

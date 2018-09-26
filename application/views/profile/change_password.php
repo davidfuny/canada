@@ -12,6 +12,7 @@ $this->load->view('header.php')
         margin-left: 30%;
         margin-top: 90px;
     }
+
     input{
         float: left;
 
@@ -20,7 +21,19 @@ $this->load->view('header.php')
         margin-left: -45px;
         margin-top: 20px;
     }
-
+    h2{
+        padding-bottom: 60px;
+    }
+    @media only screen and (max-device-width: 1069px) {
+        form {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 40px;
+        }
+        h2{
+            padding-bottom: 25px;
+        }
+    }
 
 </style>
 <form method="post" onsubmit="return validateForm()" action="<?php echo site_url('welcome/update_password') ?>" enctype="multipart/form-data">
@@ -42,7 +55,7 @@ $this->load->view('header.php')
     }
     ?>
 
-    <h2 align="center" style="padding-bottom: 60px"><?= $this->lang->line('change_password'); ?></h2>
+    <h2 align="center" ><?= $this->lang->line('change_password'); ?></h2>
 
 
 
