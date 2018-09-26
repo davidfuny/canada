@@ -21,13 +21,13 @@
                                 <!-- Modal content -->
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <p style="text-align: center; padding-top: 30px;font-size: larger;color: black">Hello</p>
-                                        <p style="margin-left: 5%">Website Visitors</p>
+                                        <br/>
+                                        <br/>
                                         <div class="Privacy">
                                             <?php
                                             echo ($this->lang->line('your_username').$register.$this->lang->line('registered_success').$email);?></div>
 
-                                        <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">Ok</button>
+                                        <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">OK</button>
                                     </div>
                                 </div>
 
@@ -41,15 +41,15 @@
                                 <!-- Modal content -->
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <p style="text-align: center; padding-top: 30px;font-size: larger;color: black">Hello</p>
-                                        <p style="margin-left: 5%">Website Visitors</p>
+                                        <br/>
+                                        <br/>
                                         <div class="Privacy">
                                             <?php
                                             echo ($this->lang->line('your_username').$email_faild.$this->lang->line('registered_faild').$email.$this->lang->line('write_id'));
                                             ?></div>
 
 
-                                        <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">Ok</button>
+                                        <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">OK</button>
                                     </div>
                                 </div>
 
@@ -75,18 +75,17 @@
 <!--    <!-- Modal content -->-->
 <!--    <div class="modal-content">-->
 <!--        <div class="modal-body">-->
-<!--            <p style="text-align: center; padding-top: 30px;font-size: larger;color: black">Hello</p>-->
-<!--            <p style="margin-left: 5%">Website Visitors</p>-->
-<!--            <div class="Privacy">xxxxxxxxxx is registered with Mefon successfully! A notification email has been sent to gdsgsdf@ghg.hbgh</div>-->
+<!--            <br/>-->
+<!--            <br/>-->
+<!--            <div class="Privacy" >xxxxxxxxxx is registered with Mefon successfully! A notification email has been sent to gdsgsdf@ghg.hbgh</div>-->
 <!---->
-<!---->
-<!--           <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">Ok</button>-->
+<!--           <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">OK</button>-->
 <!--        </div>-->
 <!--    </div>-->
 <!---->
 <!--</div>-->
 
-<!-- The Modal -->
+
 
 <script>
     // Get the modal
@@ -116,7 +115,7 @@
 
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
+        padding-top: 200px; /* Location of the box */
         left: 0;
         top: 0;
         width: 100%; /* Full width */
@@ -134,16 +133,16 @@
         margin: auto;
         border-radius: 4%;
         border: 1px solid #888;
-        width: 40%;
+        width: 26%;
 
-        height: 500px;
+        height: 320px;
     }
 
     /* The Close Button */
     .close {
         font-size: 28px;
         font-weight: bold;
-        margin-left: 35%;
+
     }
 
     .close:hover,
@@ -155,9 +154,8 @@
     .modal-body{
         margin-top: 50px;
         margin-bottom: 50px;
-        height: 400px;
+        height: 220px;
         background-color: white;
-        overflow: scroll;
     }
     .Privacy{    width: 85%;
         margin-left: 7%;

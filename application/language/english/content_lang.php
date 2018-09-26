@@ -52,9 +52,8 @@ $lang['change_password']='Change password';
 $lang['update']='Update';
 $lang['address_success']='Your address has been updated successfully!';
 $lang['address_false']='Updating address was failed!';
-$lang['current_pass']='Current password';
 $lang['new_pass']='New password';
-$lang['wrong_pass']='Your password is wrong!';
 $lang['pass_success']='Your password has been updated successfully!';
 $lang['pass_false']='Updating password was failed!';
+$lang['pass_rule']='Password should include lowercase, uppercase, number and at least 8 characters !';
 ?>

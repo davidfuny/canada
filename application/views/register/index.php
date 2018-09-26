@@ -166,12 +166,12 @@ $this->lang->load('content',$user_language);
             <table id="address">
                 <tr>
                     <td class="label"><?=$this->lang->line('apt');?></td>
-                    <td class="wideField" colspan="3"><input class="field"  name="apt"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
+                    <td class="wideField" colspan="3"><input class="field" style="width: 150%; padding-top: 2%" name="apt"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('street_adderss');?></td>
-                    <td class="slimField" colspan="3"><input class="field" id="street_number" name="load_address" required value="<?php if(isset($_SESSION["load_address"])) {echo $_SESSION["load_address"];} ?>"></td>
-                    <td class="wideField" hidden><input class="field" id="route" name="street"  value="<?php if(isset($_SESSION["street"])) {echo $_SESSION["street"];} ?>"></td>
+                    <td class="slimField" colspan="3"><input class="field" id="street_number" style="width: 150%; padding-top: 2%" name="load_address" required value="<?php if(isset($_SESSION["load_address"])) {echo $_SESSION["load_address"];} ?>"></td>
+                    <td class="wideField" hidden><input class="field" id="route"  name="street"  value="<?php if(isset($_SESSION["street"])) {echo $_SESSION["street"];} ?>"></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('city');?></td>
@@ -179,20 +179,20 @@ $this->lang->load('content',$user_language);
                          You may need to adjust it for the locations relevant to your app. See
                          https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
                     -->
-                    <td class="wideField" colspan="3"><input class="field" id="locality" name="city"
+                    <td class="wideField" colspan="3"><input class="field" id="locality" name="city" style="width: 150%; padding-top: 2%"
                                                               required value="<?php if(isset($_SESSION["city"])) {echo $_SESSION["city"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('province');?></td>
                     <td class="slimField"><input class="field" name="province"
-                                                 id="administrative_area_level_1"  required value="<?php if(isset($_SESSION["province"])) {echo $_SESSION["province"];} ?>"></input></td>
+                                                 id="administrative_area_level_1" style=" padding-top: 2%" required value="<?php if(isset($_SESSION["province"])) {echo $_SESSION["province"];} ?>"></input></td>
                     <td class="label"><?=$this->lang->line('zip_code');?></td>
-                    <td class="wideField"><input class="field" id="postal_code" name="zip_code"
+                    <td class="wideField"><input class="field" id="postal_code" name="zip_code" style=" padding-top: 2%"
                                                  value="<?php if(isset($_SESSION["zip_code"])) {echo $_SESSION["zip_code"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('country');?></td>
-                    <td class="wideField" colspan="3"><input class="field" id="country" name="country"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
+                    <td class="wideField" colspan="3"><input class="field" id="country" style="width: 150%; padding-top: 2%" name="country"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
                 </tr>
             </table>
 
@@ -200,14 +200,14 @@ $this->lang->load('content',$user_language);
 
             <div >
                 <label ><?=$this->lang->line('password');?><span class="um-req" title="Required">*</span></label>
-                <input type="password" id="pass" name="user_password" onfocusout="pass_validation()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <input type="password" id="pass" name="user_password" onfocusout="pass_validation()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  placeholder="<?=$this->lang->line('pass_rule');?>" required>
 
             </div>
             <div>
                 <label><?=$this->lang->line('confirm_password');?><span >*</span></label>
                 <br/>
-                <input  type="password" id="confirm" name="confirm_user_password" onfocusout="validate()" required>
-                <image  id="togglePasswordField" src=" <?php echo base_url(); ?>assets/images/eye.png" width="50" height="70" ></image>
+                <input  type="password" id="confirm" style="float: left" name="confirm_user_password" onfocusout="validate()" required>
+                <image  id="togglePasswordField" src=" <?php echo base_url(); ?>assets/images/eye.png" width="40" height="60" ></image>
                 <p id="pass_error" style="display: none;color: red"><?=$this->lang->line('pass_same');?></p>
                 <p id="pass_validation" style="display: none;color: red"><?=$this->lang->line('pass_validation');?></p>
             </div>

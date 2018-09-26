@@ -10,7 +10,7 @@ input[type=text], input[type=email] ,input[type=number]{
     font-size: large;
 }
 #confirm{
-    width: 90%;
+    width: 100%;
     padding: 7px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -206,7 +206,7 @@ span.psw {
         margin-top: 20px;
     }
     div #confirm{
-        width: 80%;
+        width: 100%;
         clear: both;
     }
     div .inputfile + label {
@@ -404,5 +404,10 @@ form{
     width: 85%;
     margin-left: 7%;
     margin-bottom: 20px;
+}
+#togglePasswordField{
+
+    margin-left: -45px;
+    margin-top: 7px;
 }
 

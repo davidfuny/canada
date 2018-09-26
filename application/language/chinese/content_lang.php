@@ -51,9 +51,8 @@ $lang['change_password']='修改密码';
 $lang['update']='更新';
 $lang['address_success']='您的地址成功更改了!';
 $lang['address_false']='修改地址失败了!';
-$lang['current_pass']='当前密码';
 $lang['new_pass']='新密码';
-$lang['wrong_pass']='密码不正确';
 $lang['pass_success']='您的密码成功更改了!';
 $lang['pass_false']='修改密码失败了!';
+$lang['pass_rule']='密码大于8个字而且要小写，大写字，数字的组合!';
 ?>

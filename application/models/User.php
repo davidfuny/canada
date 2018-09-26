@@ -27,19 +27,14 @@ class User extends CI_Model{
 
             return true;
     }
-    public function update_pass($data){
-        $query = $this->db->where('user_name', $_SESSION["user_name"])->update('user',$data);
-
-        return true;
-    }
     public function sendmail($data){
 //        $this->load->library('encrypt');
         $account=$data['user_name'];
         $to=$data['user_email'];
         $config['smtp_crypto'] = 'tls';
-        $config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'smtp.office365.com';
-        $config['smtp_port'] = '587';
+        $config['protocol'] = 'postfix';
+        $config['smtp_host'] = 'localhost';
+        $config['smtp_port'] = '25';
         $config['smtp_user'] = 'admin@mefon.ca';
         $config['smtp_pass'] = 'M3fon@2018';
         $config['mailtype'] = 'html';
