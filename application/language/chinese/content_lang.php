@@ -56,4 +56,5 @@ $lang['pass_success']='您的密码成功更改了!';
 $lang['pass_false']='修改密码失败了!';
 $lang['pass_rule']='密码大于8个字而且要小写，大写字，数字的组合!';
 $lang['address_here']='请输入地址...';
+$lang['font_family']='Kai,KaiTi;';
 ?>

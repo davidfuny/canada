@@ -18,11 +18,11 @@ $this->lang->load('content',$user_language);
                 <a href=""><img src="<?php echo base_url(); ?>assets/images/logo.png"></a>
             </div>
 
-            <div class="nav">
+            <div class="nav" style='font-family: <?=$this->lang->line('font_family');?>'>
 
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn"><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
-                    <div class="dropdown-content">
+                    <div class="dropdown-content" >
                         <a href="<?php echo site_url('language/index/english') ?>"><img src="<?= base_url('assets/images/english.png'); ?>" alt=""> &nbsp;  <?=$this->lang->line('english');?></a>
                         <a href="<?php echo site_url('language/index/chinese') ?>"><img src="<?= base_url('assets/images/chinese.png'); ?>" alt="">   &nbsp; <?=$this->lang->line('chines');?></a>
 

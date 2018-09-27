@@ -105,7 +105,7 @@ $this->lang->load('content',$user_language);
 ?>
 
 <ul>
-    <div class="nav_bar">
+    <div class="nav_bar" style='font-family: <?=$this->lang->line('font_family');?>'>
         <div class="wrapper">
             <div class="logo">
                 <a href=""><img src="<?php echo base_url(); ?>assets/images/logo.png"></a>

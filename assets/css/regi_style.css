@@ -1,4 +1,4 @@
-body { font-family: "Calibri Light"}
+body {font-family: Proxima Nova Condensed Light , Proxima Nova Condensed Light, Proxima Nova Condensed Light;margin: 0;}
 
 input[type=text], input[type=email] ,input[type=number]{
     width: 100%;
