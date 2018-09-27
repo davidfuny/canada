@@ -1,4 +1,4 @@
-body {font-family: Proxima Nova Condensed Light , Proxima Nova Condensed Light, Proxima Nova Condensed Light;margin: 0;} 
+body { font-family: "Calibri Light"}
 
 input[type=text], input[type=email] ,input[type=number]{
     width: 100%;
@@ -89,7 +89,7 @@ li a, .dropbtn {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
 }
 @media (max-width: 1169px){
     li a, .dropbtn{

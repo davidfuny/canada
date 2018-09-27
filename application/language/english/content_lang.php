@@ -56,4 +56,5 @@ $lang['new_pass']='New password';
 $lang['pass_success']='Your password has been updated successfully!';
 $lang['pass_false']='Updating password was failed!';
 $lang['pass_rule']='Password should include lowercase, uppercase, number and at least 8 characters !';
+$lang['address_here']='Input address here...';
 ?>

@@ -2,7 +2,7 @@ body {
     margin: 0;
     background: #f0f5f9 !important;
     overflow-x: hidden !important;
-    font-family: 'Proxima Nova thin';}
+    font-family: "Calibri Light"}
 /*form {border: 3px solid #f1f1f1;}*/
 
 input[type=text], input[type=password] {
@@ -185,7 +185,7 @@ li a, .dropbtn {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
 }
 @media (max-width: 1000px){
     li a, .dropbtn{

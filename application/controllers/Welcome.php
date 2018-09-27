@@ -95,7 +95,7 @@ class Welcome extends CI_Controller
                 //    die($ch);
                 $result = curl_exec($ch);
                 $sss = json_decode($result);
-                //    echo ($result);
+//                echo($result);
                 if (isset($sss->{'access_token'})) {
                     $access_token = $sss->{'access_token'};
                     $refresh_token = $sss->{'refresh_token'};

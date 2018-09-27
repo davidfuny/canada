@@ -20,7 +20,14 @@ $this->lang->load('content',$user_language);
 
             <div class="nav">
 
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn"><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
+                    <div class="dropdown-content">
+                        <a href="<?php echo site_url('language/index/english') ?>"><img src="<?= base_url('assets/images/english.png'); ?>" alt=""> &nbsp;  <?=$this->lang->line('english');?></a>
+                        <a href="<?php echo site_url('language/index/chinese') ?>"><img src="<?= base_url('assets/images/chinese.png'); ?>" alt="">   &nbsp; <?=$this->lang->line('chines');?></a>
 
+                    </div>
+                </li>
                 <?php
                 if (isset($_SESSION["user_name"])){?>
                     <li><a href="<?php echo site_url('welcome/logout') ?>"><?=$this->lang->line('logout');?></a></li>
@@ -38,14 +45,7 @@ $this->lang->load('content',$user_language);
                     <li><a href="<?php echo site_url('register/') ?>"><?=$this->lang->line('register');?></a></li>
                 <?php }
                 ?>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn"><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
-                    <div class="dropdown-content">
-                        <a href="<?php echo site_url('language/index/english') ?>"><img src="<?= base_url('assets/images/english.png'); ?>" alt=""> &nbsp;  <?=$this->lang->line('english');?></a>
-                        <a href="<?php echo site_url('language/index/chinese') ?>"><img src="<?= base_url('assets/images/chinese.png'); ?>" alt="">   &nbsp; <?=$this->lang->line('chines');?></a>
 
-                    </div>
-                </li>
                 <li><a href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a></li>
             </div>
 
