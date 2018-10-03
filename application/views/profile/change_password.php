@@ -18,8 +18,8 @@ $this->load->view('header.php')
 
     }
     #togglePasswordField{
-        margin-left: -45px;
-        margin-top: 20px;
+        margin-left: -50px;
+        margin-top: 32px;
     }
     h2{
         padding-bottom: 60px;
@@ -68,7 +68,7 @@ $this->load->view('header.php')
         <label><?=$this->lang->line('confirm_password');?><span >*</span></label>
         <br/>
         <input  type="password" id="confirm" style="margin-top: 30px;margin-bottom: 30px"  name="confirm_user_password" class="input_confirm" align="center" onfocusout="validate()" required>
-        <image  id="togglePasswordField" src=" <?php echo base_url(); ?>assets/images/eye.png" width="40" height="60" ></image>
+        <image  id="togglePasswordField" src=" <?php echo base_url(); ?>assets/images/show.png" width="45" height="35" ></image>
         <p id="pass_error" style="display: none;color: red"><?=$this->lang->line('pass_same');?></p>
         <p id="pass_validation" style="display: none;color: red"><?=$this->lang->line('pass_validation');?></p>
     </div>

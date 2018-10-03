@@ -166,7 +166,7 @@ $this->lang->load('content',$user_language);
             <table id="address">
                 <tr>
                     <td class="label"><?=$this->lang->line('apt');?></td>
-                    <td class="wideField" colspan="3"><input class="field" style="width: 150%; padding-top: 2%" name="apt"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
+                    <td class="wideField" colspan="3"><input class="field" style="width: 150%; padding-top: 2%" name="apt"  onfocusout="set_phone()"  value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('street_adderss');?></td>
@@ -207,7 +207,7 @@ $this->lang->load('content',$user_language);
                 <label><?=$this->lang->line('confirm_password');?><span >*</span></label>
                 <br/>
                 <input  type="password" id="confirm" style="float: left" name="confirm_user_password" onfocusout="validate()" required>
-                <image  id="togglePasswordField" src=" <?php echo base_url(); ?>assets/images/eye.png" width="40" height="60" ></image>
+                <image  id="togglePasswordField" src=" <?php echo base_url(); ?>assets/images/show.png" width="45" height="40" ></image>
                 <p id="pass_error" style="display: none;color: red"><?=$this->lang->line('pass_same');?></p>
                 <p id="pass_validation" style="display: none;color: red"><?=$this->lang->line('pass_validation');?></p>
             </div>
@@ -4768,7 +4768,7 @@ $this->lang->load('content',$user_language);
 
             <div >
                 <label><?=$this->lang->line('post_code');?><span class="um-req" title="Required">*</span></label>
-                <input type="text" name="post_code" class="" required value="<?php if(isset($_SESSION["post_code"])) {echo $_SESSION["post_code"];} ?>">
+                <input type="text" name="post_code" class="specific" required value="<?php if(isset($_SESSION["post_code"])) {echo $_SESSION["post_code"];} ?>">
 
             </div>
 

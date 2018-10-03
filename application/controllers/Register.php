@@ -70,6 +70,7 @@ class Register  extends CI_Controller{
 
             $image_path='assets/user_images/'.$user_name.'.jpg';
             $file_path = iconv("utf-8", "cp936", 'assets/user_images/'.$user_name.'.jpg');
+
             if(file_exists($file_path)){
                 unlink($file_path);
             }
@@ -314,34 +315,31 @@ class Register  extends CI_Controller{
 
 
     public function test()
+    {$this->load->view('register/file_test.php');
+
+
+    }
+    public function file_send()
     {
-        $file_path = 'assets/user_images/法国.jpg';
-        $image_url=str_replace("index.php/","",site_url($file_path));
-        echo($image_url);
+        $file_path = iconv("utf-8", "cp936", 'assets/user_images/test.jpg');
 
-//        $xx = utf8_decode('灌水灌水');
-//
-//        $_SESSION["account_name"] = 'dd公司.公司的.fs.5324';
-//        $_SESSION["first_name"] = '灌水灌水';
-//        $_SESSION["last_name"] = '火热';
-//
-////        $data = array("login" => iconv("utf-8", "cp936",$_SESSION["account_name"]), "firstName" => iconv("utf-8", "cp936",$_SESSION["first_name"]), "lastName" =>iconv("utf-8", "cp936",$_SESSION["last_name"]), "email" =>  'oikgdo@uio.cojh',"password" => '79798',"phone" =>  '68687689687',"imageUrl" =>$file,"langKey" => 'zh-cn',"activated"=>"true");
-//        $data = array("login" => $_SESSION["account_name"], "firstName" => '工会', "lastName" => '给给', "email" => 'oikgdo@uytryeioty.cojh', "password" => '79798', "phone" => '68687689687', "imageUrl" => utf8_decode('tiyti.给i.png'), "langKey" => 'zh-cn', "activated" => "true");
-////      $data_string=preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
-//
-//        $data_string = json_encode($data);
-//        echo($data_string);
-//        $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/register');
-//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-//        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//            'Content-Type: application/json',
-//            'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
-//
-//        $result = curl_exec($ch);
-//        echo($result);
+        $config['upload_path']          = './assets';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 1000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
 
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+           echo('no');
+        }
+        else
+        {
+           echo('ok');
+        }
 
     }
 
