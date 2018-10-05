@@ -58,4 +58,9 @@ $lang['pass_false']='Updating password was failed!';
 $lang['pass_rule']='Password should include lowercase, uppercase, number and at least 8 characters !';
 $lang['address_here']='Input address here...';
 $lang['font_family']='"Calibri Light";';
+$lang['birth_residential']='BirthPlace';
+$lang['why_post']='Why do we need the postal code of your birth place?';
+$lang['tooltip']='There are always chances peple has same first name, same last name, same gender and also was born on the same day in the same month and year. This could potentially cause failed registration.  When we have the postal code of your birth place as part of your user name, most of the conflict issue will be resolved. You can input the code directly or input the address of birth place, our system will generate the code for you.';
+$lang['match']='Sorry, we are not able to find a matched postal code, please input';
+
 ?>

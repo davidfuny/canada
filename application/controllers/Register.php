@@ -45,7 +45,7 @@ class Register  extends CI_Controller{
         if (isset($_POST['mobile_number'])) {
             $mobile_number = $_POST['mobile_number'];
 
-            $zip_code=$_POST['zip_code'];
+            $zip_code=str_replace(' ', '', $_POST['zip_code']);
             $load_address=$_POST['load_address'];
             $province = $_POST['province'];
             $country = $_POST['country'];
@@ -315,7 +315,9 @@ class Register  extends CI_Controller{
 
 
     public function test()
-    {$this->load->view('register/file_test.php');
+    {   $string='gdsfg dgsfgdfg gdfg';
+        $string1 = str_replace(' ', '', $string);
+        echo($string1);
 
 
     }

@@ -78,32 +78,29 @@ require('header.php')
 
     </div>
 </div>
-<!--<div id="myModal" class="modal" style="display: block">-->
-<!---->
-<!--    <div class="modal-content">-->
-<!--        <div class="modal-body">-->
-<!--            <br/>-->
-<!--            <br/>-->
-<!--            <div class="Privacy" >xxxxxxxxxx is registered with Mefon successfully! A notification email has been sent to gdsgsdf@ghg.hbgh</div>-->
-<!---->
-<!--           <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">OK</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!--</div>-->
+<div id="myModal" class="modal" style="display: block">
+
+    <div class="modal-content">
+        <div class="modal-body">
+            <br/>
+            <br/>
+            <div class="Privacy" >xxxxxxxxxx is registered with Mefon successfully! A notification email has been sent to gdsgsdf@ghg.hbgh</div>
+
+            <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">OK</button>
+        </div>
+    </div>
+
+</div>
 
 
 <script>
     // Get the modal
     var modal = document.getElementById('myModal');
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
+   
         modal.style.display = "none";
     }
 
@@ -113,7 +110,7 @@ require('header.php')
             modal.style.display = "none";
         }
     }
-    ]
+
 </script>
 <script>
     (function () {

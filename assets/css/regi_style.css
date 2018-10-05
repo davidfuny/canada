@@ -192,6 +192,9 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
+form input, select{
+    border-radius: 10px;
+}
 @media only screen and (max-device-width: 1069px){
     .container .um-col-1{
 
@@ -409,5 +412,136 @@ form{
 
     margin-left: -57px;
     margin-top: 15px;
+}
+.birth_post{
+    width: 45%;
+    float: left;
+
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 7%;margin-top: 9px;cursor: pointer;
+
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color:  #fff;
+    color:black;
+
+    border-radius: 6px;
+    padding: 5px 0;
+    /*border: 1px solid black;*/
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top:10%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip_match {
+    position: relative;
+    display: inline-block;
+    margin-left: 50%;
+    margin-top: 9px;
+    cursor: pointer;
+
+}
+.tooltip_match .match {
+    visibility: hidden;
+    width: 300px;
+    background-color:  #fff;
+    color:black;
+
+    border-radius: 6px;
+    padding: 5px 0;
+    /*border: 1px solid black;*/
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -85px;
+    right: 105%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tooltip_match .match::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+
+}
+@media only screen and (max-device-width: 1069px){
+    .birth_post{
+        width: 100%;
+
+    }
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        margin-left: 0%;
+        margin-top:0px;
+        margin-bottom: 5px;
+    }
+    .tooltip .tooltiptext {
+
+        visibility: hidden;
+        width: 95%;
+        background-color: #fff;
+        color: black;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+
+        left: 5%;
+        margin-top: 28px;
+    }
+    .tooltip .tooltiptext::after {
+
+        bottom: 100%;  /* At the top of the tooltip */
+        left: 10%;
+        margin-top: -50px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+
+    }
+    .tooltip_match {
+
+        margin-left:95%;
+
+    }
+    .tooltip_match .match {
+        width: 250px;
+        top: -100px;
+    }
+
 }
 

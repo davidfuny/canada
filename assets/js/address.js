@@ -22,10 +22,14 @@ function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
         {types: ['geocode']});
+    autocomplete1 = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete1')),
+        {types: ['geocode']});
 
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
     autocomplete.addListener('place_changed', fillInAddress);
+    autocomplete1.addListener('place_changed', fillInAddress1);
 }
 
 function fillInAddress() {
@@ -77,7 +81,30 @@ function fillInAddress() {
 
 
 }
+function fillInAddress1() {
+    var place = autocomplete1.getPlace();
 
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    document.getElementById('birth_post').value = '';
+
+    for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if(addressType=='postal_code'){
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById('birth_post').value = val;
+            var elem = document.getElementById("notmatch");
+            elem.style.visibility = 'hidden';
+        }else{
+            var elem = document.getElementById("notmatch");
+            elem.style.visibility = 'visible';
+        }
+
+    }
+
+
+
+}
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.
 function geolocate() {
@@ -114,3 +141,4 @@ function set_phone() {
     }
 
 }
+
