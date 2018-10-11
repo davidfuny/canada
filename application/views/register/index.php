@@ -5012,7 +5012,7 @@ $this->lang->load('content',$user_language);
         // Get the modal
         var modal = document.getElementById('myModal_image');
         var modalImg = document.getElementById("img01-image");
-        modal.style.display = "block";
+
 
 
 
@@ -5022,6 +5022,10 @@ $this->lang->load('content',$user_language);
 
         reader.addEventListener("load", function () {
             modalImg.src = reader.result;
+            if(reader.result)
+            {
+                modal.style.display = "block";
+            }
         }, false);
 
         if (file) {
