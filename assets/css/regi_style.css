@@ -9,6 +9,10 @@ input[type=text], input[type=email] ,input[type=number]{
     box-sizing: border-box;
     font-size: large;
 }
+select:focus,
+input:focus {
+    outline-width: 0;
+}
 #confirm{
     width: 100%;
     padding: 7px 20px;
@@ -57,8 +61,9 @@ ul {
         clear: both;
     }}
 .nav{
-    width: 60%;
+
     float: right;
+    margin-top: 10px;
 }
 .logo{
     width:30%;
@@ -73,7 +78,7 @@ ul {
         clear: both}
     .nav{
         clear: both;
-        width: 100%;
+        width: 200%;
         text-align: center;
         /*max-width: 281px;*/
         margin: 0 auto;
@@ -87,14 +92,15 @@ li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 16px;
     text-decoration: none;
     font-size: 25px;
+    border-radius: 20px;
 }
 @media (max-width: 1169px){
     li a, .dropbtn{
         font-size: 15px;
-        margin: -9px;
+        margin-left: -9px;
 
     }
 }
@@ -111,14 +117,14 @@ li.dropdown {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 10px;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 5px 15px;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -130,6 +136,14 @@ li.dropdown {
     display: block;
 }
 
+@media (max-width: 700px){
+    .dropdown-content {
+        margin-top: 2px;
+        margin-left: -8px;
+        padding-left: 8px;
+    }
+
+}
 /*end header css*/
 
 /*start footer*/
@@ -156,8 +170,10 @@ button {
 .regi_button{
     width: 100%;
     margin-bottom: 30px;
+    border-radius: 20px;
 
 }
+
 
 button:hover {
     opacity: 0.8;
@@ -193,7 +209,7 @@ span.psw {
     padding-top: 16px;
 }
 form input, select{
-    border-radius: 10px;
+    border-radius: 20px;
 }
 @media only screen and (max-device-width: 1069px){
     .container .um-col-1{
@@ -215,7 +231,7 @@ form input, select{
     div .inputfile + label {
         max-width:100%;
         margin: auto;
-        padding: 2% 35%;
+        padding: 2% 38%;
         /* 10px 20px */
     }
     body .modal-content{
@@ -258,7 +274,7 @@ select{
 }
 .inputfile{
     color: #f1e5e6;
-    background-color: #d3394c;
+
     height: 50px;
     padding: 0.625rem 1.25rem;
     margin-top: 20px;
@@ -304,7 +320,7 @@ form{
     cursor: pointer;
     display: inline-block;
     overflow: hidden;
-    padding: 0.625rem 1.25rem;
+    padding: 0.625rem 5.25rem;
     /* 10px 20px */
 }
 
@@ -339,13 +355,15 @@ form{
 
 .inputfile-1 + label {
     color: #f1e5e6;
-    background-color: #d3394c;
+    background-color: #1e95d1;
+
+    border-radius: 20px;
 }
 
 .inputfile-1:focus + label,
 .inputfile-1.has-focus + label,
 .inputfile-1 + label:hover {
-    background-color: #722040;
+    opacity: 0.8;
 }
 
 #myBtn{
@@ -512,7 +530,7 @@ form{
         width: 95%;
         background-color: #fff;
         color: black;
-        text-align: center;
+        /*text-align: center;*/
         border-radius: 6px;
         padding: 5px 0;
 
@@ -547,7 +565,7 @@ form{
 textarea{
     width: 100%;
     padding: 8px 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -573,8 +591,7 @@ textarea{
 .modal-content-image {
     margin: auto;
     display: block;
-    width: 500px;
-    height: 560px;
+    width: 330px;
     /*width:25%;*/
     max-width: 700px;
 }
@@ -603,6 +620,22 @@ textarea{
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content-image{
-        width: 100%;
+        width: 70%;
     }
 }
+
+#user_iamge{
+    width: 150px;
+    padding-bottom: 15px;
+}
+.rotate{
+    transform: rotate(90deg);
+    margin-top: 20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
+.rotate_modal{
+    transform: rotate(90deg);
+    width: 100%;
+}
+

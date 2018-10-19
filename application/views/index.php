@@ -78,19 +78,6 @@ require('header.php')
 
     </div>
 </div>
-<!--<div id="myModal" class="modal" style="display: block">-->
-<!---->
-<!--    <div class="modal-content">-->
-<!--        <div class="modal-body">-->
-<!--            <br/>-->
-<!--            <br/>-->
-<!--            <div class="Privacy" >xxxxxxxxxx is registered with Mefon successfully! A notification email has been sent to gdsgsdf@ghg.hbgh</div>-->
-<!---->
-<!--            <button class="close" style="background-color: #00CC00;width: 30%;border-radius: 5%;">OK</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!--</div>-->
 
 
 <script>
@@ -99,7 +86,7 @@ require('header.php')
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
+    span.onclick = function (){
 
         modal.style.display = "none";
     }
@@ -154,8 +141,9 @@ require('header.php')
     }
 
     #togglePasswordField {
+        float: left;
         margin-left: -50px;
-        margin-top: 15px;
+        margin-top: 20px;
     }
 
     .modal {
@@ -185,9 +173,13 @@ require('header.php')
         height: 320px;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 700px) {
         .modal-content {
             width: 96%;
+        }
+        #togglePasswordField {
+
+            margin-top: 15px;
         }
     }
 

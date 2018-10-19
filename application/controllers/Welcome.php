@@ -41,33 +41,39 @@ class Welcome extends CI_Controller
     public function index($dat = '')
 
     {
-        if ($dat == '') {
-            $lang = $_SESSION["language"];
-            $this->session->unset_userdata('language');
-            if (isset($_SESSION["user_name"])) {
-                $this->session->unset_userdata('user_name');
+        if (isset($_SESSION["user_name"])) {
+        $this->load->view('user.php');
+        }
+        else{
+            if ($dat == '') {
+                $lang = $_SESSION["language"];
+                $this->session->unset_userdata('language');
+                if (isset($_SESSION["user_name"])) {
+                    $this->session->unset_userdata('user_name');
+                }
+
+                $_SESSION["language"] = $lang;
+                $this->load->view('index.php');
+            }
+//        if login false
+            if ($dat == 'false') {
+                $data['message'] = $dat;
+                $this->load->view('index.php', $data);
+            }
+//        if register success
+            if ($dat == 'success') {
+                $data['register'] = $_SESSION["account_name"];
+                $data['email'] = $_SESSION["user_email"];
+//            session_destroy();
+                $this->load->view('index.php', $data);
+            }
+            if ($dat == 'email_faild') {
+                $data['email_faild'] = $_SESSION["account_name"];
+                $data['email'] = $_SESSION["user_email"];
+//            session_destroy();
+                $this->load->view('index.php', $data);
             }
 
-            $_SESSION["language"] = $lang;
-            $this->load->view('index.php');
-        }
-//        if login false
-        if ($dat == 'false') {
-            $data['message'] = $dat;
-            $this->load->view('index.php', $data);
-        }
-//        if register success
-        if ($dat == 'success') {
-            $data['register'] = $_SESSION["account_name"];
-            $data['email'] = $_SESSION["user_email"];
-//            session_destroy();
-            $this->load->view('index.php', $data);
-        }
-        if ($dat == 'email_faild') {
-            $data['email_faild'] = $_SESSION["account_name"];
-            $data['email'] = $_SESSION["user_email"];
-//            session_destroy();
-            $this->load->view('index.php', $data);
         }
 
 

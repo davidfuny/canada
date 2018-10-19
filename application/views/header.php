@@ -34,8 +34,8 @@ $this->lang->load('content',$user_language);
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropbtn"><?=$this->lang->line('profile');?></a>
                         <div class="dropdown-content">
-                            <a href="<?php echo site_url('welcome/change_address') ?>"><?=$this->lang->line('change_address');?></a>
-                            <a href="<?php echo site_url('welcome/change_password') ?>"><?=$this->lang->line('change_password');?></a>
+                            <a class='first_a' href="<?php echo site_url('welcome/change_address')?>"><?=$this->lang->line('change_address');?></a>
+                            <a class='second_a' href="<?php echo site_url('welcome/change_password') ?>"><?=$this->lang->line('change_password');?></a>
 
                         </div>
                     </li>
@@ -46,7 +46,13 @@ $this->lang->load('content',$user_language);
                 <?php }
                 ?>
 
-                <li><a href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a></li>
+                <li class="dropdown"><a href="javascript:void(0)"><?=$this->lang->line('home');?></a>
+                    <div class="dropdown-content" >
+                        <a  href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a>
+                        <a  href="http://new.mefon.ca/"><?=$this->lang->line('mefon');?></a>
+
+                    </div>
+                </li>
             </div>
 
 

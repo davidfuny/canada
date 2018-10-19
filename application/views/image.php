@@ -1,34 +1,9 @@
 <?php
 require ('header.php')
 ?>
+
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 <style>
-    div.gallery {
-        margin-left: 10%;
-        margin-top: 5%;
-        border: 1px solid #ccc;
-        float: left;
-        width: 20%;
-    }
-
-    div.gallery:hover {
-        border: 1px solid #777;
-    }
-
-    div.gallery img {
-        width: 100%;
-        height: 300px;
-
-    }
-
-    div.desc {
-        padding: 15px;
-        text-align: center;
-    }
-</style>
-<style>
-    /*body {font-family: Arial, Helvetica, sans-serif;}*/
-
-    .image:hover {opacity: 0.7;}
 
     /* The Modal (background) */
 
@@ -49,8 +24,7 @@ require ('header.php')
     .modal-content {
         margin: auto;
         display: block;
-        width: 500px;
-        height: 560px;
+        width: 400px;
         /*width:25%;*/
         max-width: 700px;
     }
@@ -106,31 +80,27 @@ require ('header.php')
     /* 100% Image Width on Smaller Screens */
     @media only screen and (max-width: 700px){
         .modal-content {
-            width: 100%;
+            width: 80%;
         }
     }
 </style>
+<body>
 
+<div class="image-row">
+    <div class="image-set">
                     <?php
                     if(isset($someObjects)){
                         $j=0;
                         foreach ($someObjects as $someObject ){
                            $j=$j+1;
                             ?>
+                                       <img id="myImg<?=$j?>"  class="example-image example-image-link" src="<?=$someObject->url?>" onclick="show(<?=$j?>)">
 
-                            <div class="gallery">
-
-                                    <img id="myImg<?=$j?>" style="border: 0;" src="<?=$someObject->url?>" onclick="show(<?=$j?>)" class="image" width="600" height="400"/>
-
-                                <div class="desc">Add a description of the image here</div>
-                            </div>
                             <?php
                         }}
                     ?>
 
-
-<div style="clear: both">
-
+    </div>
 </div>
 
 <div id="myModal" class="modal">
@@ -138,6 +108,37 @@ require ('header.php')
     <img class="modal-content" id="img01" >
 
 </div>
+
+    <style>
+        .example-image-link:hover {
+            background-color: #4ae;
+            transition: none; }
+
+        .example-image {
+            display: inline-block;
+            padding: 2px;
+            margin: 50px 70px 25px 70px;
+            background-color: #fff;
+            line-height: 0;
+            border-radius: 4px;
+            transition: background-color 0.5s ease-out;
+            width: 250px;
+            border-radius: 4px; }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        @media only screen and (max-width: 800px) {
+            .example-image{
+                width: 140px;
+                margin: 20px 0 0 30px;
+            }
+        }
+
+
+    </style>
 
 <script>
     // Get the modal
@@ -149,17 +150,24 @@ require ('header.php')
         var captionText = document.getElementById("caption");
         modal.style.display = "block";
         modalImg.src = img.src;
+        var urlReplace = "#"; // make the hash the id of the modal shown
+        history.pushState(null, null, urlReplace); // push state that hash into the url
+        $(window).on('popstate', function() {
+            modal.style.display = "none";
+        });
     }
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        history.back();
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            history.back();
         }
     }
 </script>

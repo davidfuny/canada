@@ -94,8 +94,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz3b9EpGPYdYCb1wAWx2ZRU7N9uqfQ5WQ&libraries=places&callback=initAutocomplete"
             async defer></script>
     <script src="<?php echo base_url(); ?>assets/js/address.js" type="text/javascript"></script>
-
-
+    <script src="<?php echo base_url(); ?>assets/js/exif.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -131,7 +131,13 @@ $this->lang->load('content',$user_language);
                 <?php }
                 ?>
 
-                <li><a href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a></li>
+                <li class="dropdown"><a href="javascript:void(0)"><?=$this->lang->line('home');?></a>
+                    <div class="dropdown-content" >
+                        <a  href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a>
+                        <a  href="http://new.mefon.ca/"><?=$this->lang->line('mefon');?></a>
+
+                    </div>
+                </li>
             </div>
 
 
@@ -139,7 +145,7 @@ $this->lang->load('content',$user_language);
     </div>
 </ul>
 
-<form method="post"  onsubmit="return validateForm()" action="<?php echo site_url('register/sms') ?>" enctype="multipart/form-data">
+<form method="post" autocomplete="on" onsubmit="return validateForm()" action="<?php echo site_url('register/sms') ?>" enctype="multipart/form-data">
     <div class="container">
         <div style="color: red" align="center"> <?php
             if(isset($register)) {
@@ -167,7 +173,7 @@ $this->lang->load('content',$user_language);
             <table id="address">
                 <tr>
                     <td class="label"><?=$this->lang->line('apt');?></td>
-                    <td class="wideField" colspan="3"><input class="field" style="width: 150%; padding-top: 2%" name="apt"  onfocusout="set_phone()"  value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
+                    <td class="wideField" colspan="3"><input type="text" class="field" style="width: 150%; padding-top: 2%" name="apt"  onfocusout="set_phone()"  value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('street_adderss');?></td>
@@ -4794,9 +4800,6 @@ $this->lang->load('content',$user_language);
                 </div>
             </div>
 
-
-
-
             <!--            pass word show-->
             <script>
                 (function() {
@@ -4849,19 +4852,18 @@ $this->lang->load('content',$user_language);
 
 
             <div style="clear: both;">
+                <img id="user_iamge" onclick="show_image()" src="<?php echo base_url(); ?>assets/images/user.png">
+                <br/>
                 <input type="file" name="image" id="file-1" class="inputfile1 inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" size="20" hidden>
                 <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> <span class="um-req"><?=$this->lang->line('pro_image');?></span></label>
                 <p id="image_error" style="display: none;color: red"><?=$this->lang->line('image_invalid');?></p>
             </div>
-            <a id='preview' onclick="show_image()"><?=$this->lang->line('preivew_image');?></a>
             <div id="myBtn"><p  style="margin-bottom:9px;margin-top:7px"> <?=$this->lang->line('rule_check');?></p></div>
             <div ><input type="checkbox" required> <?=$this->lang->line('agree');?></div>
-            <button type="submit" class="regi_button" id="um-submit-btn" ><?=$this->lang->line('register');?></button>
+            <button type="submit" class="regi_button"><?=$this->lang->line('register');?></button>
         </div>
 
     </div>
-
-
 </form>
 
 <!-- The Modal -->
@@ -4876,11 +4878,7 @@ $this->lang->load('content',$user_language);
 </div>
 <div id="myModal_image" class="modal_image">
     <span class="close_image">&times;</span>
-
-
     <img class="modal-content-image" id="img01-image" >
-
-
 </div>
 <!--image tag manage-->
 <script type="text/javascript">
@@ -4892,8 +4890,8 @@ $this->lang->load('content',$user_language);
         var image= document.getElementById("file-1");
         Array.prototype.forEach.call( inputs, function( input )
         {
-            var label	 = input.nextElementSibling,
-                labelVal = label.innerHTML;
+//            var label	 = input.nextElementSibling,
+//                labelVal = label.innerHTML;
 
             input.addEventListener( 'change', function( e )
             {
@@ -4902,15 +4900,47 @@ $this->lang->load('content',$user_language);
                     fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
                 else
                     fileName = e.target.value.split( '\\' ).pop();
-
+                var preview = document.getElementById("user_iamge");
+                var modal_image = document.getElementById("img01-image");
                 if( fileName ){
-                    label.querySelector( 'span' ).innerHTML = fileName;
+
+                    var file    = document.querySelector('input[type=file]').files[0];
+                    var reader  = new FileReader();
+                    reader.addEventListener("load", function () {
+                        preview.src = reader.result;
+                    }, false);
+                    if (file) {
+                        reader.readAsDataURL(file);
+                        EXIF.getData(file, function() {
+                            // alert(EXIF.pretty(this));
+                            EXIF.getAllTags(this);
+                            var Orientation=EXIF.getTag(this, 'Orientation');
+
+                            if(Orientation==6){
+
+                                preview.classList.add("rotate");
+                                modal_image.classList.add("rotate_modal");
+
+                            }
+                            else{
+                                preview.classList.remove("rotate");
+                                modal_image.classList.remove("rotate_modal");
+                            }
+
+                            return;
+
+
+                        })
+                    }
+
                     image_error.style.display = "none";
                 }
 
-//
+
                 else
-                    label.innerHTML = labelVal;
+                    preview.src ="<?php echo base_url(); ?>assets/images/user.png";
+                    preview.classList.remove("rotate");
+                    modal_image.classList.remove("rotate_modal");
 
             });
 
@@ -4982,16 +5012,23 @@ $this->lang->load('content',$user_language);
     // When the user clicks the button, open the modal
     btn.onclick = function() {
         modal.style.display = "block";
+        var urlReplace = "#"; // make the hash the id of the modal shown
+        history.pushState(null, null, urlReplace); // push state that hash into the url
+        $(window).on('popstate', function() {
+            modal.style.display = "none";
+        });
     }
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        history.back()
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+
         }
     }
 
@@ -5008,15 +5045,10 @@ $this->lang->load('content',$user_language);
 
 //    show image
     function show_image(){
-
         // Get the modal
         var modal = document.getElementById('myModal_image');
         var modalImg = document.getElementById("img01-image");
 
-
-
-
-//        var preview = document.querySelector('img');
         var file    = document.querySelector('input[type=file]').files[0];
         var reader  = new FileReader();
 
@@ -5031,17 +5063,26 @@ $this->lang->load('content',$user_language);
         if (file) {
             reader.readAsDataURL(file);
         }
+        var urlReplace = "#1"; // make the hash the id of the modal shown
+        history.pushState(null, null, urlReplace); // push state that hash into the url
+        $(window).on('popstate', function() {
+            modal.style.display = "none";
+        });
     }
     var modal_image = document.getElementById('myModal_image');
     var span_image = document.getElementsByClassName("close_image")[0];
     // When the user clicks on <span> (x), close the modal
     span_image.onclick = function() {
         modal_image.style.display = "none";
+        history.back();
+
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal_image) {
             modal_image.style.display = "none";
+            history.back();
+
         }
     }
 
@@ -5170,9 +5211,3 @@ $this->lang->load('content',$user_language);
 
 </div>
 </body></html>
-<style>
-
-
-
-
-</style>
