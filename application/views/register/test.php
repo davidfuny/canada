@@ -1,51 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>modal.html</title>
-    <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 </head>
 <body>
-<p>If you press the back button now, you should return to whatever page you were on before this page.</p>
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Show me the modal!</button>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <p>If you press the web browser's back button OR the modal's close buttons, the modal will close and the hash will return to "modal.html#modalClosed".</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
+<input type="file" id="upLoad" name="image" >
+<!-- 显示上传之后的图片 -->
+<div id='previewImg'>
+    <img src="" id='viewImg'/>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+    #previewImg{
+        background-color: black;
+        width: 400px;
+        height:400px;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-<script type="text/javascript">
-    $("#myModal").on("shown.bs.modal", function()  { // any time a modal is shown
-        var urlReplace = "#" + $(this).attr('id'); // make the hash the id of the modal shown
-        history.pushState(null, null, urlReplace); // push state that hash into the url
+    #previewImg img{
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #upLoad{
+        margin-bottom: 20px;
+    }
+</style>
+<script>
+
+    $(function(){
+        $('#upLoad').on('change',function(){
+            var filePath = $(this).val(),         //获取到input的value，里面是文件的路径
+                fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
+                imgBase64 = '',      //存储图片的imgBase64
+                fileObj = document.getElementById('upLoad').files[0]; //上传文件的对象,要这样写才行，用jquery写法获取不到对象
+
+            // 检查是否是图片
+            if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+                alert('上传错误,文件格式必须为：png/jpg/jpeg');
+                return;
+            }
+
+            // 调用函数，对图片进行压缩
+            compress(fileObj,function(imgBase64){
+                imgBase64 = imgBase64;    //存储转换的base64编码
+                $('#viewImg').attr('src',imgBase64); //显示预览图片
+            });
+        });
+
+        // 不对图片进行压缩，直接转成base64
+        function directTurnIntoBase64(fileObj,callback){
+            var r = new FileReader();
+            // 转成base64
+            r.onload = function(){
+                //变成字符串
+                imgBase64 = r.result;
+                console.log(imgBase64);
+                callback(imgBase64);
+            }
+            r.readAsDataURL(fileObj);    //转成Base64格式
+        }
+
+        // 对图片进行压缩
+        function compress(fileObj, callback) {
+            if ( typeof (FileReader) === 'undefined') {
+                console.log("当前浏览器内核不支持base64图标压缩");
+                //调用上传方式不压缩
+                directTurnIntoBase64(fileObj,callback);
+            } else {
+                try {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var image = $('<img/>');
+                        image.load(function(){
+                            square =300,   //定义画布的大小，也就是图片压缩之后的像素
+                                canvas = document.createElement('canvas'),
+                                context = canvas.getContext('2d'),
+                                imageWidth = 0,    //压缩图片的大小
+                                imageHeight = 0,
+                                offsetX = 0,
+                                offsetY = 0,
+                                data = '';
+
+                            canvas.width = square;
+                            canvas.height = square;
+                            context.clearRect(0, 0, square, square);
+
+                            if (this.width > this.height) {
+                                imageWidth = Math.round(square * this.width / this.height);
+                                imageHeight = square;
+                                offsetX = - Math.round((imageWidth - square) / 2);
+                            } else {
+                                imageHeight = Math.round(square * this.height / this.width);
+                                imageWidth = square;
+                                offsetY = - Math.round((imageHeight - square) / 2);
+                            }
+                            context.drawImage(this, offsetX, offsetY, imageWidth, imageHeight);
+                            var data = canvas.toDataURL('image/jpeg',3);
+                            var data_image=data.split("base64,")[1];
+                            $.ajax({
+                                url: "<?php echo site_url('register/send_file/')?>",
+                                type: 'POST',
+                                data:{
+                                    "base64": data_image
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    var exist=$.parseJSON(data).result;
+                                    alert(exist);
+                                },
+                                error: function (jqXhr, textStatus, errorMessage) {
+                                    alert('Please check your internet connection！');
+                                }
+                            });
+                            //压缩完成执行回调
+                            callback(data);
+                        });
+                        image.attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(fileObj);
+                }catch(e){
+                    console.log("压缩失败!");
+                    //调用直接上传方式  不压缩
+                    directTurnIntoBase64(fileObj,callback);
+                }
+            }
+        }
     });
 
-    // If a pushstate has previously happened and the back button is clicked, hide any modals.
-    $(window).on('popstate', function() {
-        $(".modal").modal('hide');
-    });
+
 </script>
 </body>
 </html>

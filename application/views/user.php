@@ -14,13 +14,9 @@ require ('header.php')
                     <a style="text-decoration: none;" href="http://new.mefon.ca/download/app-release.apk" class="button"><?=$this->lang->line('down_apk');?></a></div>
                     <p></p>
                     <button type="submit"><?=$this->lang->line('show_image');?></button>
-
-
                 </div>
-
-
-
-            </div></form>
+            </div>
+        </form>
 
 </div>
 </div>

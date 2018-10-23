@@ -272,6 +272,20 @@ class Register  extends CI_Controller{
         }
 
     }
+
+
+    public function mail_check($mail)
+    {
+        $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/checkemail/'.$mail);
+
+//    $ch = curl_init('http://mefon.scopeactive.com:8080/media/api/_search/media?query=ownerName:hubert');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $results = curl_exec($ch);
+        echo($results);
+
+    }
+
     public function sendmail(){
         $account='公司';
         $to='star1987lei@gmail.com';
@@ -313,12 +327,6 @@ class Register  extends CI_Controller{
 
     }
 
-
-    public function test()
-    {
-        $this->load->view('register/test.php');
-
-    }
     public function file_send()
     {
         $file_path = iconv("utf-8", "cp936", 'assets/user_images/test.jpg');
@@ -341,6 +349,45 @@ class Register  extends CI_Controller{
            echo('ok');
         }
 
+    }
+    function test(){
+        $this->load->view('register/test.php');
+    }
+
+    function send_file(){
+
+//        $check = getimagesize($_FILES["image"]["tmp_name"]);
+//        if($check !== false) {
+//            $data = base64_encode(file_get_contents( $_FILES["image"]["tmp_name"] ));
+//            echo($data);
+            $data1['imagedata']=$_POST['base64'];
+
+            $passData = array(
+                "base64" =>  $_POST['base64']
+            );
+            $data_string = json_encode($passData,JSON_UNESCAPED_UNICODE);
+            $ch = curl_init('http://mefon.scopeactive.com:8080/media/api/media/checkface');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
+
+            $result = curl_exec($ch);
+
+            if($result==false){
+                $result='{"result":"error"}';
+            }
+            echo(json_encode($result));
+//            $sss = json_decode($result);
+
+
+//            echo "copy + paste the data below, use it as a string in ur JavaScript Code<br><br>";
+//            echo "<textarea id='data' style=''>data:".$check["mime"].";base64,".$data."</textarea>";
+//        } else {
+//            echo "File is not an image.";
+//        }
     }
 
 

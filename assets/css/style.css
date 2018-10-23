@@ -194,7 +194,7 @@ li a, .dropbtn {
 @media (max-width: 1000px){
     li a, .dropbtn{
         font-size: 15px;
-        margin-left: -9px;
+        margin-left: -20px;
 
     }
 }

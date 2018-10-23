@@ -96,6 +96,7 @@
     <script src="<?php echo base_url(); ?>assets/js/address.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/exif.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -112,7 +113,7 @@ $this->lang->load('content',$user_language);
             </div>
 
             <div class="nav">
-
+                <li> <a  href="http://new.mefon.ca/"><?=$this->lang->line('mefon');?></a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn"><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
                     <div class="dropdown-content">
@@ -131,12 +132,9 @@ $this->lang->load('content',$user_language);
                 <?php }
                 ?>
 
-                <li class="dropdown"><a href="javascript:void(0)"><?=$this->lang->line('home');?></a>
-                    <div class="dropdown-content" >
+                <li>
                         <a  href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a>
-                        <a  href="http://new.mefon.ca/"><?=$this->lang->line('mefon');?></a>
 
-                    </div>
                 </li>
             </div>
 
@@ -177,8 +175,8 @@ $this->lang->load('content',$user_language);
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('street_adderss');?></td>
-                    <td class="slimField" colspan="3"><input class="field" id="street_number" style="width: 150%; padding-top: 2%" name="load_address" required value="<?php if(isset($_SESSION["load_address"])) {echo $_SESSION["load_address"];} ?>"></td>
-                    <td class="wideField" hidden><input class="field" id="route"  name="street"  value="<?php if(isset($_SESSION["street"])) {echo $_SESSION["street"];} ?>"></td>
+                    <td class="slimField" colspan="3"><input type="text" class="field" id="street_number" style="width: 150%; padding-top: 2%" name="load_address" required value="<?php if(isset($_SESSION["load_address"])) {echo $_SESSION["load_address"];} ?>"></td>
+                    <td class="wideField" hidden><input type="text" class="field" id="route"  name="street"  value="<?php if(isset($_SESSION["street"])) {echo $_SESSION["street"];} ?>"></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('city');?></td>
@@ -186,23 +184,23 @@ $this->lang->load('content',$user_language);
                          You may need to adjust it for the locations relevant to your app. See
                          https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
                     -->
-                    <td class="wideField" colspan="3"><input class="field" id="locality" name="city" style="width: 150%; padding-top: 2%"
+                    <td class="wideField" colspan="3"><input type="text" class="field" id="locality" name="city" style="width: 150%; padding-top: 2%"
                                                               required value="<?php if(isset($_SESSION["city"])) {echo $_SESSION["city"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('province');?></td>
-                    <td class="slimField" colspan="3"><input class="field" name="province"
+                    <td class="slimField" colspan="3"><input type="text" class="field" name="province"
                                                  id="administrative_area_level_1" style="width: 150%; padding-top: 2%" required value="<?php if(isset($_SESSION["province"])) {echo $_SESSION["province"];} ?>"></input></td>
 
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('zip_code');?></td>
-                    <td class="wideField" colspan="3"><input class="field" id="postal_code" name="zip_code" style="width: 150%; padding-top: 2%"
+                    <td class="wideField" colspan="3"><input type="text" class="field" id="postal_code" name="zip_code" style="width: 150%; padding-top: 2%"
                                                  value="<?php if(isset($_SESSION["zip_code"])) {echo $_SESSION["zip_code"];} ?>"></input></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->lang->line('country');?></td>
-                    <td class="wideField" colspan="3"><input class="field" id="country" style="width: 150%; padding-top: 2%" name="country"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
+                    <td class="wideField" colspan="3"><input type="text" class="field" id="country" style="width: 150%; padding-top: 2%" name="country"  onfocusout="set_phone()" required value="<?php if(isset($_SESSION["country"])) {echo $_SESSION["country"];} ?>"></input></td>
                 </tr>
             </table>
 
@@ -237,8 +235,11 @@ $this->lang->load('content',$user_language);
             </select>
                 <div >
                     <label><?=$this->lang->line('email');?><span class="um-req" title="Required">*</span></label>
-                    <input type="email" name="user_email" required value="<?php if(isset($_SESSION["user_email"])) {echo $_SESSION["user_email"];} ?>">
-
+                    <input type="email" id="email" name="user_email" required value="<?php if(isset($_SESSION["user_email"])) {echo $_SESSION["user_email"];} ?>">
+                </div>
+                <div class="tooltip_email" >
+                        <span class="match" id="mail_check">
+                        <div id='email_check' style="padding:30px 30px 30px 30px;"></div></span>
                 </div>
                 <div >
 
@@ -2511,8 +2512,12 @@ $this->lang->load('content',$user_language);
                   </div>
                   <div >
                       <label><?=$this->lang->line('email');?><span class="um-req" title="Required">*</span></label>
-                      <input type="email" name="user_email" required value="<?php if(isset($_SESSION["user_email"])) {echo $_SESSION["user_email"];} ?>">
+                      <input type="email" name="user_email"  id="email" required value="<?php if(isset($_SESSION["user_email"])) {echo $_SESSION["user_email"];} ?>">
 
+                  </div>
+                  <div class="tooltip_email" >
+                        <span class="match" id="mail_check">
+                        <div id='email_check' style="padding:30px 30px 30px 30px;"></div></span>
                   </div>
                   <div >
 
@@ -4776,7 +4781,7 @@ $this->lang->load('content',$user_language);
 
             <div id="locationField1">
                 <label><?=$this->lang->line('birth_residential');?><span class="um-req" title="Required">*</span></label>
-                <textarea id="autocomplete1" rows="1" placeholder="<?=$this->lang->line('address_here');?>"
+                <textarea id="autocomplete1" rows="1" placeholder="   <?=$this->lang->line('address_here');?>"
                        onFocus="geolocate()" ></textarea>
             </div>
             <div class="tooltip_match" >
@@ -4854,8 +4859,15 @@ $this->lang->load('content',$user_language);
             <div style="clear: both;">
                 <img id="user_iamge" onclick="show_image()" src="<?php echo base_url(); ?>assets/images/user.png">
                 <br/>
+                <div class="tooltip_image" >
+                        <span class="match" id="image_check">
+                        <div id='gif_check' style="padding:20px 20px 20px 20px;"></div>
+                        </span>
+                </div>
+                <br/>
                 <input type="file" name="image" id="file-1" class="inputfile1 inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" size="20" hidden>
                 <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> <span class="um-req"><?=$this->lang->line('pro_image');?></span></label>
+
                 <p id="image_error" style="display: none;color: red"><?=$this->lang->line('image_invalid');?></p>
             </div>
             <div id="myBtn"><p  style="margin-bottom:9px;margin-top:7px"> <?=$this->lang->line('rule_check');?></p></div>
@@ -4880,6 +4892,11 @@ $this->lang->load('content',$user_language);
     <span class="close_image">&times;</span>
     <img class="modal-content-image" id="img01-image" >
 </div>
+<div id="loading_image" class="loading_image">
+    <div class="gif_content">
+    <img class="loading_gif" src="<?php echo base_url(); ?>assets/images/waiting.gif" id="loading" >
+    </div>
+</div>
 <!--image tag manage-->
 <script type="text/javascript">
 
@@ -4890,11 +4907,10 @@ $this->lang->load('content',$user_language);
         var image= document.getElementById("file-1");
         Array.prototype.forEach.call( inputs, function( input )
         {
-//            var label	 = input.nextElementSibling,
-//                labelVal = label.innerHTML;
-
             input.addEventListener( 'change', function( e )
             {
+                var elem = document.getElementById("image_check");
+                elem.style.visibility = 'hidden';
                 var fileName = '';
                 if( this.files && this.files.length > 1 )
                     fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
@@ -4903,14 +4919,87 @@ $this->lang->load('content',$user_language);
                 var preview = document.getElementById("user_iamge");
                 var modal_image = document.getElementById("img01-image");
                 if( fileName ){
-
                     var file    = document.querySelector('input[type=file]').files[0];
                     var reader  = new FileReader();
                     reader.addEventListener("load", function () {
                         preview.src = reader.result;
                     }, false);
                     if (file) {
+                        var gif=document.getElementById("loading_image");
+                        gif.style.display = "block";
                         reader.readAsDataURL(file);
+                        // image check
+                        reader.onload = function (f) {
+                            var user_image = $('#user_iamge');
+                            user_image.load(function(){
+                                square =300,   //定义画布的大小，也就是图片压缩之后的像素
+                                    canvas = document.createElement('canvas'),
+                                    context = canvas.getContext('2d'),
+                                    imageWidth = 0,    //压缩图片的大小
+                                    imageHeight = 0,
+                                    offsetX = 0,
+                                    offsetY = 0,
+                                    data = '';
+
+                                canvas.width = square;
+                                canvas.height = square;
+                                context.clearRect(0, 0, square, square);
+
+                                if (this.width > this.height) {
+                                    imageWidth = Math.round(square * this.width / this.height);
+                                    imageHeight = square;
+                                    offsetX = - Math.round((imageWidth - square) / 2);
+                                } else {
+                                    imageHeight = Math.round(square * this.height / this.width);
+                                    imageWidth = square;
+                                    offsetY = - Math.round((imageHeight - square) / 2);
+                                }
+                                context.drawImage(this, offsetX, offsetY, imageWidth, imageHeight);
+                                var data = canvas.toDataURL('image/jpeg',3);
+                                var data_image=data.split("base64,")[1];
+                                $.ajax({
+                                    url: "<?php echo site_url('register/send_file/')?>",
+                                    type: 'POST',
+                                    data:{
+                                        "base64": data_image
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+
+                                        gif.style.display = "none";
+                                        var exist=$.parseJSON(data).result;
+
+                                      if(exist==false){
+                                          $("#gif_check").html("<?=$this->lang->line('image_check_tooltip');?>");
+                                          var elem = document.getElementById("image_check");
+                                          elem.style.visibility = 'visible';
+                                      }
+                                      if(exist=='error'){
+                                          $("#gif_check").html("<?=$this->lang->line('internet_error');?>");
+
+                                          var elem = document.getElementById("image_check");
+                                          elem.style.visibility = 'visible';
+                                      }
+
+
+
+                                    },
+                                    error: function (jqXhr, textStatus, errorMessage) {
+                                        <?php $error=$this->lang->line('internet_error');?>
+                                        alert('<?=$error;?>');
+                                        var elem = document.getElementById("image_check");
+                                        elem.style.visibility = 'hidden';
+                                        gif.style.display = "none";
+                                    }
+                                });
+                                //压缩完成执行回调
+                                callback(data);
+                            });
+                        };
+                        reader.onerror = function (error) {
+                            console.log('Error: ', error);
+                        };
+                        // end check image
                         EXIF.getData(file, function() {
                             // alert(EXIF.pretty(this));
                             EXIF.getAllTags(this);
@@ -4935,7 +5024,6 @@ $this->lang->load('content',$user_language);
 
                     image_error.style.display = "none";
                 }
-
 
                 else
                     preview.src ="<?php echo base_url(); ?>assets/images/user.png";
@@ -5087,6 +5175,35 @@ $this->lang->load('content',$user_language);
     }
 
 
+    $("#email").focusout(function(){
+        var email= document.getElementById("email").value;
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!email.match(re)) {
+            $("#email_check").html("<?=$this->lang->line('mail_rule');?>");
+            var elem = document.getElementById("mail_check");
+            elem.style.visibility = 'visible';
+        }
+        else {
+            mail=email.replace("@", "%40");
+            $.get("<?php echo site_url('register/mail_check/')?>"+mail, function(data, status){
+                var exist=$.parseJSON(data).exist;
+                if(exist==true){
+                    var elem = document.getElementById("mail_check");
+                    $("#email_check").html("<?=$this->lang->line('mail_exist');?>");
+                    elem.style.visibility = 'visible';
+                }
+            });
+        }
+
+
+
+
+    });
+    $("#email").focusin(function(){
+        var elem = document.getElementById("mail_check");
+        elem.style.visibility = 'hidden';
+    });
+
 </script>
 <style>
 
@@ -5200,6 +5317,7 @@ $this->lang->load('content',$user_language);
 <script>'undefined' === typeof _trfq || (window._trfq = []);
     'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({'tccl.baseHost': 'secureserver.net'}), _trfd.push({'ap': 'cpsh'}, {'server': 'a2plcpnl0413'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
 <script src="<?php echo base_url(); ?>assets/MeFon – 5G Biometrics Security_files/tcc_l.combined.1.0.6.min.js.download"></script>
+
 <br>
 <div style="clear: both">
 
@@ -5210,4 +5328,5 @@ $this->lang->load('content',$user_language);
 
 
 </div>
+
 </body></html>

@@ -16,6 +16,11 @@ class User extends CI_Model{
         return 'True';
 
     }
+    public function add_image($data){
+        $this->db->insert('image', $data);
+        return 'True';
+
+    }
     public function get_user($user){
         $query = $this->db->where('user_name', $user)->get('user');
         return $query->result();
