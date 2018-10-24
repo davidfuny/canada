@@ -5071,9 +5071,17 @@ $this->lang->load('content',$user_language);
     function validateForm() {
         var image= document.getElementById("file-1");
         var image_error= document.getElementById("image_error");
-
         var pass_error=document.getElementById("pass_error");
         var pass_validation=document.getElementById("pass_validation");
+        var elem = document.getElementById("image_check");
+        if(elem.style.visibility=='visible'){
+            image_error.style.display = "block";
+            return false;
+        }
+        var mail_check = document.getElementById("mail_check");
+        if(mail_check.style.visibility=='visible'){
+            return false;
+        }
 
         if(image.value=="") {
             image_error.style.display = "block";

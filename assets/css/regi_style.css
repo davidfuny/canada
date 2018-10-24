@@ -739,8 +739,14 @@ textarea{
 @media only screen and (max-width: 700px){
     .loading_image{
         padding-top: 200px;
+        margin-left: 120px;
     }
     .tooltip_image .match {
         width: 140px;
+        top:-160px;
     }
+    #user_iamge {
+        width: 120px;
+    }
+
 }
