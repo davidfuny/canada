@@ -657,7 +657,7 @@ textarea{
 .modal_image {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -719,6 +719,24 @@ textarea{
     width: 100%;
 }
 
+.rotate_right{
+    transform: rotate(-90deg);
+    margin-top: 20px;
+    margin-left: -5px;
+    margin-bottom: 20px;
+}
+.rotate_modal_right{
+    transform: rotate(-90deg);
+    width: 100%;
+}
+.rotate_180{
+    transform: rotate(180deg);
+
+}
+.rotate_modal_180{
+    transform: rotate(180deg);
+    width: 100%;
+}
 /*loading modal*/
 .loading_image{
     display: none;
@@ -739,11 +757,14 @@ textarea{
 @media only screen and (max-width: 700px){
     .loading_image{
         padding-top: 200px;
-        margin-left: 120px;
+
     }
     .tooltip_image .match {
-        width: 140px;
-        top:-160px;
+        width: 170px;
+        top:-140px;
+    }
+    .tooltip_image{
+        margin-left: 130px;
     }
     #user_iamge {
         width: 120px;

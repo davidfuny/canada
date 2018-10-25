@@ -63,8 +63,8 @@ $lang['why_post']='Why do we need the postal code of your birth place?';
 $lang['tooltip']='There are always chances peple has same first name, same last name, same gender and also was born on the same day in the same month and year. This could potentially cause failed registration.  When we have the postal code of your birth place as part of your user name, most of the conflict issue will be resolved. You can input the code directly or input the address of birth place, our system will generate the code for you.';
 $lang['match']='Sorry, we are not able to find a matched postal code, please input';
 $lang['mefon']='Mefon';
-$lang['mail_exist']='Sorry, this email is already exist, please input other one';
-$lang['mail_rule']='Sorry, this email is invalid';
-$lang['image_check_tooltip']='Your image is not clear or not human face!';
+$lang['mail_exist']='This email address has been registered with us, please use another one!';
+$lang['mail_rule']='This email address is invalid';
+$lang['image_check_tooltip']='Sorry, we are not able to detect a human face on the uploaded image!';
 $lang['internet_error']='Please check your internet connection!';
 ?>

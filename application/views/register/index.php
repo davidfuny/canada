@@ -4918,6 +4918,12 @@ $this->lang->load('content',$user_language);
                     fileName = e.target.value.split( '\\' ).pop();
                 var preview = document.getElementById("user_iamge");
                 var modal_image = document.getElementById("img01-image");
+                preview.classList.remove("rotate");
+                modal_image.classList.remove("rotate_modal");
+                preview.classList.remove("rotate_right");
+                modal_image.classList.remove("rotate_modal_right");
+                preview.classList.remove("rotate_180");
+                modal_image.classList.remove("rotate_modal_180");
                 if( fileName ){
                     var file    = document.querySelector('input[type=file]').files[0];
                     var reader  = new FileReader();
@@ -5011,9 +5017,17 @@ $this->lang->load('content',$user_language);
                                 modal_image.classList.add("rotate_modal");
 
                             }
-                            else{
-                                preview.classList.remove("rotate");
-                                modal_image.classList.remove("rotate_modal");
+                            if(Orientation==8){
+
+                                preview.classList.add("rotate_right");
+                                modal_image.classList.add("rotate_modal_right");
+
+                            }
+                            if(Orientation==3){
+
+                                preview.classList.add("rotate_180");
+                                modal_image.classList.add("rotate_modal_180");
+
                             }
 
                             return;
