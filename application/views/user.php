@@ -11,12 +11,23 @@ require ('header.php')
                 <div class="container">
                     <div class="button_wrap" ">
                     <br>
-                    <a style="text-decoration: none;" href="http://new.mefon.ca/download/app-release.apk" class="button"><?=$this->lang->line('down_apk');?></a></div>
-                    <p></p>
-                    <button type="submit"><?=$this->lang->line('show_image');?></button>
+                    <a style="text-decoration: none;" href="http://new.mefon.ca/download/Outside-China.apk" class="button"><?=$this->lang->line('down_apk');?></a>
                 </div>
+                <p></p>
+                <div class="button_wrap" ">
+                <br>
+                <a style="text-decoration: none;" href="http://new.mefon.ca/download/Within-China.apk" class="button"><?=$this->lang->line('down_apk_baidu');?></a>
             </div>
-        </form>
+
+            <p></p>
+            <div class="button_wrap" ">
+            <br>
+            <a style="text-decoration: none;" href="<?php echo site_url('welcome/show_image') ?>" class="button"><?=$this->lang->line('show_image');?></a>
+    </div>
+</div>
+</div>
+
+</form>
 
 </div>
 </div>
@@ -27,3 +38,5 @@ require ('footer.php')
 
 </body>
 </html>
+
+<a style="text-decoration: none;" href="http://new.mefon.ca/download/app-release.apk" class="button"><?=$this->lang->line('down_apk');?></a>

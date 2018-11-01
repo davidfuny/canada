@@ -113,9 +113,9 @@ $this->lang->load('content',$user_language);
             </div>
 
             <div class="nav">
-                <li> <a  href="http://new.mefon.ca/"><?=$this->lang->line('mefon');?></a></li>
+                <li> <a  href="http://new.mefon.ca/" class="menu"><?=$this->lang->line('mefon');?></a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn"><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
+                    <a href="javascript:void(0)" class="dropbtn menu" ><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
                     <div class="dropdown-content">
                         <a href="<?php echo site_url('language/index/english') ?>"><img src="<?= base_url('assets/images/english.png'); ?>" alt=""> &nbsp;  <?=$this->lang->line('english');?></a>
                         <a href="<?php echo site_url('language/index/chinese') ?>"><img src="<?= base_url('assets/images/chinese.png'); ?>" alt="">   &nbsp; <?=$this->lang->line('chines');?></a>
@@ -124,16 +124,16 @@ $this->lang->load('content',$user_language);
                 </li>
                 <?php
                 if (isset($_SESSION["user_name"])){?>
-                    <li><a href="<?php echo site_url('welcome/logout') ?>"><?=$this->lang->line('logout');?></a></li>
+                    <li><a href="<?php echo site_url('welcome/logout') ?>" class="menu"><?=$this->lang->line('logout');?></a></li>
                 <?php }
                 else{?>
-                    <li><a href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('login');?></a></li>
-                    <li><a href="<?php echo site_url('register/') ?>"><?=$this->lang->line('register');?></a></li>
+                    <li><a href="<?php echo site_url('welcome/') ?>" class="menu"><?=$this->lang->line('login');?></a></li>
+                    <li><a href="<?php echo site_url('register/') ?>" class="menu"><?=$this->lang->line('register');?></a></li>
                 <?php }
                 ?>
 
                 <li>
-                        <a  href="<?php echo site_url('welcome/') ?>"><?=$this->lang->line('home');?></a>
+                        <a  href="<?php echo site_url('welcome/') ?>" class="menu"><?=$this->lang->line('home');?></a>
 
                 </li>
             </div>
