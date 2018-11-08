@@ -78,6 +78,19 @@ function fillInAddress() {
         jQuery(".selected-flag:eq(1) div:eq(0)").attr( "class",'iti-flag tw');
         jQuery('#mobile_number-58').val('+886');
     }
+    textarea=document.getElementById("autocomplete");
+    textarea.focus();
+    var len = textarea.value.length;
+    if (document.selection) {
+        var sel = textarea.createTextRange();
+        sel.moveStart('character', len);
+        sel.collapse();
+        sel.select();
+    } else if (typeof textarea.selectionStart == 'number'
+        && typeof textarea.selectionEnd == 'number') {
+        textarea.selectionStart = textarea.selectionEnd = len;
+    }
+
 
 
 }
@@ -100,6 +113,18 @@ function fillInAddress1() {
             elem.style.visibility = 'visible';
         }
 
+    }
+    textarea=document.getElementById("autocomplete1");
+    textarea.focus();
+    var len = textarea.value.length;
+    if (document.selection) {
+        var sel = textarea.createTextRange();
+        sel.moveStart('character', len);
+        sel.collapse();
+        sel.select();
+    } else if (typeof textarea.selectionStart == 'number'
+        && typeof textarea.selectionEnd == 'number') {
+        textarea.selectionStart = textarea.selectionEnd = len;
     }
 
 

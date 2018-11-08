@@ -19,7 +19,7 @@ $this->lang->load('content',$user_language);
             </div>
 
             <div class="nav" style='font-family: <?=$this->lang->line('font_family');?>'>
-                <li><a  href="http://new.mefon.ca/" class="menu"><?=$this->lang->line('mefon');?></a></li>
+                <li><a  href="http://new.mefon.ca/?noredirect=true" class="menu"><?=$this->lang->line('mefon');?></a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn menu"><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
                     <div class="dropdown-content" >

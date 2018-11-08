@@ -55,6 +55,8 @@ class Register  extends CI_Controller{
             $country_birth = $_POST['country_birth'];
             $post_code = $_POST['post_code'];
             $post_code = preg_replace('/\s+/', '', $post_code);
+            $occupation = $_POST['occupation'];
+            $birthplace = $_POST['birthplace'];
 
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
@@ -138,6 +140,8 @@ class Register  extends CI_Controller{
                 $_SESSION["zip_code"] = $zip_code;
                 $_SESSION["load_address"] = $load_address;
                 $_SESSION["image_url"] = $image_url;
+                $_SESSION["occupation"] = $occupation;
+                $_SESSION["birthplace"] = $birthplace;
 
                 $this->load->view('register/validate.php');
             } else {
@@ -201,9 +205,38 @@ class Register  extends CI_Controller{
             $status = $response['status'];
             if($status == 'SUCCESS') {
 //            send register request to java site
-                $data = array("login" => $_SESSION["account_name"], "firstName" => $_SESSION["first_name"], "lastName" =>$_SESSION["last_name"], "email" =>  $_SESSION["user_email"],"password" => $_SESSION["user_password"],"phone" =>  $_SESSION["mobile_number"],"imageUrl" =>$_SESSION["image_url"],"langKey" => $_SESSION["user_language"],"activated"=>"true");
-                $data_string = json_encode($data,JSON_UNESCAPED_UNICODE);
+//                $data = array("login" => $_SESSION["account_name"], "firstName" => $_SESSION["first_name"], "lastName" =>$_SESSION["last_name"], "email" =>  $_SESSION["user_email"],"password" => $_SESSION["user_password"],"phone" =>  $_SESSION["mobile_number"],"imageUrl" =>$_SESSION["image_url"],"langKey" => $_SESSION["user_language"],"activated"=>"true");
+//                $data_string = json_encode($data,JSON_UNESCAPED_UNICODE);
+                $data_user=(object)[];
+                $data_address=(object)[];
+                $data_identity=(object)[];
+                $data_address->apt=$_SESSION["user_apt"];
+                $data_address->city=$_SESSION["city"];
+                $data_address->country=$_SESSION["country"];
+                $data_address->province=$_SESSION["province"];
+                $data_address->street=$_SESSION["load_address"];
+                $data_address->zipcode=$_SESSION["zip_code"];
 
+                $data_identity->birthCountry=$_SESSION["country_birth"];
+                $data_identity->birthPlace=$_SESSION["birthplace"];
+                $data_identity->birthPostcode=$_SESSION["post_code"];
+                $data_identity->nationality=$_SESSION["nationality"];
+                $data_identity->occupation=$_SESSION["occupation"];
+
+                $data_user->login=$_SESSION["account_name"];
+                $data_user->firstName=$_SESSION["first_name"];
+                $data_user->lastName=$_SESSION["last_name"];
+                $data_user->email=$_SESSION["user_email"];
+                $data_user->phone=$_SESSION["mobile_number"];
+                $data_user->password=$_SESSION["user_password"];
+                $data_user->imageUrl=$_SESSION["image_url"];
+                $data_user->activated='true';
+                $data_user->langKey=$_SESSION["user_language"];
+
+                $data_user->address=$data_address;
+                $data_user->identity=$data_identity;
+
+                $data_string = json_encode($data_user,JSON_UNESCAPED_UNICODE);
                 $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/register');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -356,10 +389,6 @@ class Register  extends CI_Controller{
 
     function send_file(){
 
-//        $check = getimagesize($_FILES["image"]["tmp_name"]);
-//        if($check !== false) {
-//            $data = base64_encode(file_get_contents( $_FILES["image"]["tmp_name"] ));
-//            echo($data);
             $data1['imagedata']=$_POST['base64'];
 
             $passData = array(
@@ -380,14 +409,7 @@ class Register  extends CI_Controller{
                 $result='{"result":"error"}';
             }
             echo(json_encode($result));
-//            $sss = json_decode($result);
 
-
-//            echo "copy + paste the data below, use it as a string in ur JavaScript Code<br><br>";
-//            echo "<textarea id='data' style=''>data:".$check["mime"].";base64,".$data."</textarea>";
-//        } else {
-//            echo "File is not an image.";
-//        }
     }
 
 

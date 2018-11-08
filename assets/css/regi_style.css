@@ -365,7 +365,6 @@ form{
 .inputfile-1 + label {
     color: #f1e5e6;
     background-color: #1e95d1;
-
     border-radius: 20px;
 }
 
@@ -563,7 +562,7 @@ form{
 .tooltip_image {
     position: relative;
     display: inline-block;
-    margin-left: 160px;
+    margin-left: 20px;
     margin-top: 9px;
     cursor: pointer;
 
@@ -580,7 +579,7 @@ form{
     /* Position the tooltip */
     position: absolute;
     z-index: 2;
-    top: -130px;
+    top: -20px;
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -716,6 +715,7 @@ textarea{
 #user_iamge{
     width: 150px;
     padding-bottom: 15px;
+    float: left;
 }
 .rotate{
     transform: rotate(90deg);
@@ -770,13 +770,28 @@ textarea{
     }
     .tooltip_image .match {
         width: 170px;
-        top:-140px;
+        top:-50px;
     }
     .tooltip_image{
-        margin-left: 130px;
+        margin-left: 30px;
     }
     #user_iamge {
         width: 120px;
     }
 
 }
+#image_desc{
+    width: 300px;
+    margin-left: 300px;
+    margin-top: -10px;
+    color: red;
+
+}
+@media only screen and (max-width: 700px){
+    #image_desc{
+        width:190px;
+        margin-left: 150px;
+        margin-top: -20px;
+        font-size: 14px;
+
+    }}

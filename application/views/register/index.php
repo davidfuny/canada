@@ -96,7 +96,7 @@
     <script src="<?php echo base_url(); ?>assets/js/address.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/exif.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/js/autosize.js"></script>
 </head>
 
 <body>
@@ -113,7 +113,7 @@ $this->lang->load('content',$user_language);
             </div>
 
             <div class="nav">
-                <li> <a  href="http://new.mefon.ca/" class="menu"><?=$this->lang->line('mefon');?></a></li>
+                <li> <a  href="http://new.mefon.ca/?noredirect=true" class="menu"><?=$this->lang->line('mefon');?></a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn menu" ><img src="<?= base_url('assets/images/'.$user_language.'.png'); ?>" alt="">&nbsp;<?=$this->lang->line('lang');?></a>
                     <div class="dropdown-content">
@@ -164,8 +164,8 @@ $this->lang->load('content',$user_language);
             </div>
             <div id="locationField">
                 <label><?=$this->lang->line('residential');?><span class="um-req" title="Required">*</span></label>
-                <textarea id="autocomplete" rows="1" placeholder="     <?=$this->lang->line('address_here');?>"
-                       onFocus="geolocate()" ></textarea>
+                <textarea  id="autocomplete" rows="1" placeholder="<?=$this->lang->line('address_here');?>"
+                       onFocus="geolocate()" style="height: 50px;"></textarea>
             </div>
 
             <table id="address">
@@ -204,7 +204,10 @@ $this->lang->load('content',$user_language);
                 </tr>
             </table>
 
-
+            <div >
+                <label><?=$this->lang->line('occupation');?></label>
+                <input type="text" name="occupation">
+            </div>
 
             <div >
                 <label ><?=$this->lang->line('password');?><span class="um-req" title="Required">*</span></label>
@@ -4782,19 +4785,17 @@ $this->lang->load('content',$user_language);
             <div id="locationField1">
                 <label><?=$this->lang->line('birth_residential');?><span class="um-req" title="Required">*</span></label>
                 <textarea id="autocomplete1" rows="1" placeholder="   <?=$this->lang->line('address_here');?>"
-                       onFocus="geolocate()" ></textarea>
+                       onFocus="geolocate()" name="birthplace"></textarea>
             </div>
             <div class="tooltip_match" >
                         <span class="match" id="notmatch">
                         <div style="padding:30px 30px 30px 30px;"><?=$this->lang->line('match');?></div></span>
             </div>
-            <div >
+            <div>
 
                 <label><?=$this->lang->line('post_code');?><span class="um-req" title="Required">*</span></label>
                 <br/>
                 <div class="birth_post">
-
-
                     <input   type="text" name="post_code" class="specific" id="birth_post" required value="<?php if(isset($_SESSION["post_code"])) {echo $_SESSION["post_code"];} ?>">
 
                 </div>
@@ -4858,6 +4859,7 @@ $this->lang->load('content',$user_language);
 
             <div style="clear: both;">
                 <img id="user_iamge" onclick="show_image()" src="<?php echo base_url(); ?>assets/images/user.png">
+
                 <br/>
                 <div class="tooltip_image" >
                         <span class="match" id="image_check">
@@ -4865,10 +4867,16 @@ $this->lang->load('content',$user_language);
                         </span>
                 </div>
                 <br/>
+                <div id="image_desc">
+                    <p><?=$this->lang->line('image_description1');?></p>
+                    <p><?=$this->lang->line('image_description2');?></p>
+                    <p><?=$this->lang->line('image_description3');?></p>
+                </div>
+                <div style="clear: both;">
                 <input type="file" name="image" id="file-1" class="inputfile1 inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" size="20" hidden>
                 <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg> <span class="um-req"><?=$this->lang->line('pro_image');?></span></label>
 
-                <p id="image_error" style="display: none;color: red"><?=$this->lang->line('image_invalid');?></p>
+                <p id="image_error" style="display: none;color: red"><?=$this->lang->line('image_invalid');?></p></div>
             </div>
             <div id="myBtn"><p  style="margin-bottom:9px;margin-top:7px"> <?=$this->lang->line('rule_check');?></p></div>
             <div ><input type="checkbox" required> <?=$this->lang->line('agree');?></div>
@@ -4902,6 +4910,9 @@ $this->lang->load('content',$user_language);
 
     ( function ( document, window, index )
     {
+        autosize(document.getElementById("autocomplete"));//auto size
+        autosize(document.getElementById("autocomplete1"));
+
         var image_error= document.getElementById("image_error");
         var inputs = document.querySelectorAll( '.inputfile1' );
         var image= document.getElementById("file-1");
@@ -5146,13 +5157,6 @@ $this->lang->load('content',$user_language);
     var post = document.getElementById("birth_post");
     // Get the <span> element that closes the modal
 
-    // When the user clicks the button, open the modal
-    post.onfocus = function() {
-
-        var elem = document.getElementById("notmatch");
-        elem.style.visibility = 'hidden';
-    }
-
 //    show image
     function show_image(){
         // Get the modal
@@ -5194,6 +5198,8 @@ $this->lang->load('content',$user_language);
             history.back();
 
         }
+        var elem = document.getElementById("notmatch");
+        elem.style.visibility = 'hidden';
     }
 
 
@@ -5227,10 +5233,7 @@ $this->lang->load('content',$user_language);
     });
 
 </script>
-<style>
 
-
-</style>
 
 <!-- wpsolr - ajax auto completion nonce -->
 
