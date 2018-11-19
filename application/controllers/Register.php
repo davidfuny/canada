@@ -259,7 +259,7 @@ class Register  extends CI_Controller{
                     $this->load->view('register/index.php',$error);
 
                 } else {
-                    $this->load->model('user');
+
                     $data1['user_name']=$_SESSION["account_name"] ;
                     $data1['first_name']=$_SESSION["first_name"] ;
                     $data1['last_name']=$_SESSION["last_name"];
@@ -276,7 +276,7 @@ class Register  extends CI_Controller{
                     $data1['country_birth']=$_SESSION["country_birth"] ;
                     $data1['post_code']=$_SESSION["post_code"];
                     $data1['image_url']=$_SESSION["image_url"];
-                    $result=$this->user->add_user($data1);
+
                     if ($result=='True'){
                         $email=$this->user->sendmail($data1);
 //                        send email is success

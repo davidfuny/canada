@@ -64,7 +64,7 @@ class Welcome extends CI_Controller
             if ($dat == 'success') {
                 $data['register'] = $_SESSION["account_name"];
                 $data['email'] = $_SESSION["user_email"];
-//            session_destroy();
+
                 $this->load->view('index.php', $data);
             }
             if ($dat == 'email_faild') {
@@ -98,41 +98,18 @@ class Welcome extends CI_Controller
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                     'Content-Type: application/json',
                     'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
-                //    die($ch);
+
                 $result = curl_exec($ch);
                 $sss = json_decode($result);
-//                echo($result);
+
                 if (isset($sss->{'access_token'})) {
                     $access_token = $sss->{'access_token'};
                     $refresh_token = $sss->{'refresh_token'};
                     $_SESSION["access_token"] = $access_token;
                     $_SESSION["refresh_token"] = $refresh_token;
-//                    $_SESSION["user_name"] = $username;
+
                     $this->session->set_userdata('user_name',$username);
-//                    $this->load->model('user');
-//                    $results = $this->user->get_user($username);
-//                    if (!empty($results[0]->language)) {
-//                        if ($results[0]->language == 'en') {
-//                            $_SESSION["language"] = 'english';
-//                            $_SESSION["apt"] = $results[0]->apt;
-//                            $_SESSION["city"] = $results[0]->city;
-//                            $_SESSION["load_address"] = $results[0]->load_address;
-//                            $_SESSION["zip_code"] = $results[0]->zip_code;
-//                            $_SESSION["country"] = $results[0]->country;
-//                            $_SESSION["province"] = $results[0]->province;
-//
-//                        } else {
-//                            $_SESSION["language"] = 'chinese';
-//                            $_SESSION["apt"] = $results[0]->apt;
-//                            $_SESSION["city"] = $results[0]->city;
-//                            $_SESSION["load_address"] = $results[0]->load_address;
-//                            $_SESSION["zip_code"] = $results[0]->zip_code;
-//                            $_SESSION["country"] = $results[0]->country;
-//                            $_SESSION["province"] = $results[0]->province;
-//
-//                        }
-//
-//                    }
+
 
                     $this->load->view('user.php');
                 } else {
@@ -238,12 +215,9 @@ class Welcome extends CI_Controller
     {
         if (isset($_SESSION["user_name"])) {
             if (isset($_POST["zip_code"])) {
-                $this->load->model('user');
 
                 $access_token = $_SESSION["access_token"];
                 $refresh_token = $_SESSION["refresh_token"];
-
-
                 $data_user=(object)[];
                 $data_address=(object)[];
                 $data_user->activated='true';
@@ -257,8 +231,6 @@ class Welcome extends CI_Controller
                 $data_user->imageUrl=$_SESSION["imageUrl"];
                 $data_user->langKey=$_SESSION["langKey"];
                 $data_user->authorities=$_SESSION["authorities"];
-
-
                 $data_address->apt=$_POST["apt"];
                 $data_address->city=$_POST["city"];
                 $data_address->country=$_POST["country"];
@@ -267,14 +239,9 @@ class Welcome extends CI_Controller
                 $data_address->zipcode=$_POST["zip_code"];
 
                 $data_user->address=$data_address;
-
-
-
-
                 $data_string = json_encode($data_user,JSON_UNESCAPED_UNICODE);
 //                print_r($data_string);
                 $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/users');
-
 //                curl_setopt($ch, CURLOPT_PUT, true);
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
