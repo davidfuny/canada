@@ -90,7 +90,9 @@ function fillInAddress() {
         && typeof textarea.selectionEnd == 'number') {
         textarea.selectionStart = textarea.selectionEnd = len;
     }
-
+    // textarea.trigger(
+    //     jQuery.Event( 'keydown', { keyCode: 13, which: 13 } )
+    // );
 
 
 }

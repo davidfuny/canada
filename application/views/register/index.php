@@ -164,7 +164,7 @@ $this->lang->load('content',$user_language);
             </div>
             <div id="locationField">
                 <label><?=$this->lang->line('residential');?><span class="um-req" title="Required">*</span></label>
-                <textarea  id="autocomplete" rows="1" placeholder="<?=$this->lang->line('address_here');?>"
+                <textarea  id="autocomplete" rows="2" placeholder="<?=$this->lang->line('address_here');?>"
                        onFocus="geolocate()" style="height: 50px;"></textarea>
             </div>
 
@@ -4784,7 +4784,7 @@ $this->lang->load('content',$user_language);
 
             <div id="locationField1">
                 <label><?=$this->lang->line('birth_residential');?><span class="um-req" title="Required">*</span></label>
-                <textarea id="autocomplete1" rows="1" placeholder="   <?=$this->lang->line('address_here');?>"
+                <textarea id="autocomplete1" rows="2" placeholder=" <?=$this->lang->line('address_here');?>"
                        onFocus="geolocate()" name="birthplace"></textarea>
             </div>
             <div class="tooltip_match" >
@@ -4869,8 +4869,10 @@ $this->lang->load('content',$user_language);
                 <br/>
                 <div id="image_desc">
                     <p><?=$this->lang->line('image_description1');?></p>
+                    <p><?=$this->lang->line('image_description4');?></p>
                     <p><?=$this->lang->line('image_description2');?></p>
                     <p><?=$this->lang->line('image_description3');?></p>
+                    <p><?=$this->lang->line('image_description5');?></p>
                 </div>
                 <div style="clear: both;">
                 <input type="file" name="image" id="file-1" class="inputfile1 inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple="" size="20" hidden>

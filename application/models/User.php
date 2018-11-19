@@ -41,7 +41,7 @@ class User extends CI_Model{
         $config['smtp_host'] = 'localhost';
         $config['smtp_port'] = '25';
         $config['smtp_user'] = 'admin@mefon.ca';
-        $config['smtp_pass'] = 'M3fon@2018';
+        $config['smtp_pass'] = 'BigBlueWave@2018';
         $config['mailtype'] = 'html';
         $config['charset'] = 'utf-8';
         $config['wordwrap'] = 'TRUE';

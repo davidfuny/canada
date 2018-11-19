@@ -42,7 +42,7 @@ class Welcome extends CI_Controller
 
     {
         if (isset($_SESSION["user_name"])) {
-        $this->load->view('user.php');
+            $this->load->view('user.php');
         }
         else{
             if ($dat == '') {
@@ -107,31 +107,32 @@ class Welcome extends CI_Controller
                     $refresh_token = $sss->{'refresh_token'};
                     $_SESSION["access_token"] = $access_token;
                     $_SESSION["refresh_token"] = $refresh_token;
-                    $_SESSION["user_name"] = $username;
-                    $this->load->model('user');
-                    $results = $this->user->get_user($username);
-                    if (!empty($results[0]->language)) {
-                        if ($results[0]->language == 'en') {
-                            $_SESSION["language"] = 'english';
-                            $_SESSION["apt"] = $results[0]->apt;
-                            $_SESSION["city"] = $results[0]->city;
-                            $_SESSION["load_address"] = $results[0]->load_address;
-                            $_SESSION["zip_code"] = $results[0]->zip_code;
-                            $_SESSION["country"] = $results[0]->country;
-                            $_SESSION["province"] = $results[0]->province;
-
-                        } else {
-                            $_SESSION["language"] = 'chinese';
-                            $_SESSION["apt"] = $results[0]->apt;
-                            $_SESSION["city"] = $results[0]->city;
-                            $_SESSION["load_address"] = $results[0]->load_address;
-                            $_SESSION["zip_code"] = $results[0]->zip_code;
-                            $_SESSION["country"] = $results[0]->country;
-                            $_SESSION["province"] = $results[0]->province;
-
-                        }
-
-                    }
+//                    $_SESSION["user_name"] = $username;
+                    $this->session->set_userdata('user_name',$username);
+//                    $this->load->model('user');
+//                    $results = $this->user->get_user($username);
+//                    if (!empty($results[0]->language)) {
+//                        if ($results[0]->language == 'en') {
+//                            $_SESSION["language"] = 'english';
+//                            $_SESSION["apt"] = $results[0]->apt;
+//                            $_SESSION["city"] = $results[0]->city;
+//                            $_SESSION["load_address"] = $results[0]->load_address;
+//                            $_SESSION["zip_code"] = $results[0]->zip_code;
+//                            $_SESSION["country"] = $results[0]->country;
+//                            $_SESSION["province"] = $results[0]->province;
+//
+//                        } else {
+//                            $_SESSION["language"] = 'chinese';
+//                            $_SESSION["apt"] = $results[0]->apt;
+//                            $_SESSION["city"] = $results[0]->city;
+//                            $_SESSION["load_address"] = $results[0]->load_address;
+//                            $_SESSION["zip_code"] = $results[0]->zip_code;
+//                            $_SESSION["country"] = $results[0]->country;
+//                            $_SESSION["province"] = $results[0]->province;
+//
+//                        }
+//
+//                    }
 
                     $this->load->view('user.php');
                 } else {
@@ -155,12 +156,13 @@ class Welcome extends CI_Controller
             $refresh_token = $_SESSION["refresh_token"];
             $user_name = $_SESSION["user_name"];
 
-            $ch = curl_init('http://mefon.scopeactive.com:8080/media/api/_search/media?query=ownerName:' . $user_name);
-//    $ch = curl_init('http://mefon.scopeactive.com:8080/media/api/_search/media?query=ownerName:hubert');
+//            $ch = curl_init('http://mefon.scopeactive.com:8080/media/api/_search/media?query=ownerName:' . $user_name);
+            $ch = curl_init('http://mefon.scopeactive.com:8080/media/api/media?page=0&size=20');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_COOKIE, 'access_token=' . $access_token . ';refresh_token=' . $refresh_token);
             $results = curl_exec($ch);
+
             $var2 = (string)$results;
             if ($var2 == "") {
                 $this->load->view('image.php');
@@ -184,7 +186,38 @@ class Welcome extends CI_Controller
     public function change_address()
     {
         if (isset($_SESSION["user_name"])) {
-            $this->load->view('profile/change_address.php');
+            $access_token = $_SESSION["access_token"];
+            $refresh_token = $_SESSION["refresh_token"];
+            $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/account');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_COOKIE, 'access_token=' . $access_token . ';refresh_token=' . $refresh_token);
+            $results = curl_exec($ch);
+//            echo($results);
+            $sss = json_decode($results);
+            if(isset($sss->{'id'})){
+                $_SESSION["id"]=$sss->{'id'};
+                $_SESSION["login"]=$sss->{'login'};
+                $_SESSION["firstName"]=$sss->{'firstName'};
+                $_SESSION["lastName"]=$sss->{'lastName'};
+                $_SESSION["email"]=$sss->{'email'};
+                $_SESSION["phone"]=$sss->{'phone'};
+                $_SESSION["imageUrl"]=$sss->{'imageUrl'};
+                $_SESSION["langKey"]=$sss->{'langKey'};
+                $_SESSION["authorities"]=$sss->{'authorities'};
+                $_SESSION["identity"]=$sss->{'identity'};
+
+                $address['apt']=$sss->{'address'}->{'apt'};
+                $address['street']=$sss->{'address'}->{'street'};
+                $address['city']=$sss->{'address'}->{'city'};
+                $address['province']=$sss->{'address'}->{'province'};
+                $address['zipcode']=$sss->{'address'}->{'zipcode'};
+                $address['country']=$sss->{'address'}->{'country'};
+                $this->load->view('profile/change_address.php',$address);
+            }
+
+
+//
         } else {
             redirect('/welcome/index', 'refresh');
         }
@@ -206,26 +239,66 @@ class Welcome extends CI_Controller
         if (isset($_SESSION["user_name"])) {
             if (isset($_POST["zip_code"])) {
                 $this->load->model('user');
-                $data['apt'] = $_POST["apt"];
-                $data['zip_code'] = $_POST["zip_code"];
-                $data['load_address'] = $_POST["load_address"];
-                $data['province'] = $_POST["province"];
-                $data['country'] = $_POST["country"];
-                $data['city'] = $_POST["city"];
-                $result = $this->user->update_user($data);
-                if ($result) {
-                    $_SESSION["apt"] = $data['apt'];
-                    $_SESSION["city"] = $data['city'];
-                    $_SESSION["load_address"] = $data['load_address'];
-                    $_SESSION["zip_code"] = $data['zip_code'];
-                    $_SESSION["country"] = $data['country'];
-                    $_SESSION["province"] = $data['province'];
-                    $status['status'] = 'success';
-                    $this->load->view('profile/change_address.php', $status);
+
+                $access_token = $_SESSION["access_token"];
+                $refresh_token = $_SESSION["refresh_token"];
+
+
+                $data_user=(object)[];
+                $data_address=(object)[];
+                $data_user->activated='true';
+                $data_user->id=$_SESSION["id"];
+                $data_user->login=$_SESSION["login"];
+                $data_user->firstName=$_SESSION["firstName"];
+                $data_user->lastName=$_SESSION["lastName"];
+                $data_user->email=$_SESSION["email"];
+                $data_user->phone=$_SESSION["phone"];
+                $data_user->identity=$_SESSION["identity"];
+                $data_user->imageUrl=$_SESSION["imageUrl"];
+                $data_user->langKey=$_SESSION["langKey"];
+                $data_user->authorities=$_SESSION["authorities"];
+
+
+                $data_address->apt=$_POST["apt"];
+                $data_address->city=$_POST["city"];
+                $data_address->country=$_POST["country"];
+                $data_address->province=$_POST["province"];
+                $data_address->street=$_POST["load_address"];
+                $data_address->zipcode=$_POST["zip_code"];
+
+                $data_user->address=$data_address;
+
+
+
+
+                $data_string = json_encode($data_user,JSON_UNESCAPED_UNICODE);
+//                print_r($data_string);
+                $ch = curl_init('http://mefon.scopeactive.com:8080/uaa/api/users');
+
+//                curl_setopt($ch, CURLOPT_PUT, true);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                curl_setopt($ch, CURLOPT_COOKIE, 'access_token=' . $access_token . ';refresh_token=' . $refresh_token);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Authorization : Basic bWVmb25fYXBwOlA5MDgyMGJiMTc0M2UxMGNlYQ=='));
+                $result = curl_exec($ch);
+                $sss = json_decode($result);
+                $address['apt'] = $_POST["apt"];
+                $address["city"] = $_POST['city'];
+                $address["street"] = $_POST['load_address'];
+                $address["zipcode"] = $_POST['zip_code'];
+                $address["country"] = $_POST['country'];
+                $address["province"] = $_POST['province'];
+                if (isset($sss->{'message'}))  {
+                    echo($sss->{'message'});
+                    $address['status'] = 'false';
+                    $this->load->view('profile/change_address.php', $address);
 
                 } else {
-                    $status['status'] = 'false';
-                    $this->load->view('profile/change_address.php', $status);
+                    $address['status'] = 'success';
+                    $this->load->view('profile/change_address.php', $address);
                 }
             } else {
                 $this->load->view('profile/change_address.php');
@@ -270,10 +343,10 @@ class Welcome extends CI_Controller
                 $this->load->view('profile/change_password.php');
             }
 
-         }
+        }
         else
         {
-        redirect('/welcome/index', 'refresh');
+            redirect('/welcome/index', 'refresh');
         }
 
     }
