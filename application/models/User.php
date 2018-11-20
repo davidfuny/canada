@@ -9,29 +9,9 @@
 class User extends CI_Model{
     public function __construct(){
         parent::__construct();
-        $this->load->database();
-    }
-    public function add_user($data){
-        $this->db->insert('user', $data);
-        return 'True';
 
     }
-    public function add_image($data){
-        $this->db->insert('image', $data);
-        return 'True';
 
-    }
-    public function get_user($user){
-        $query = $this->db->where('user_name', $user)->get('user');
-        return $query->result();
-
-
-    }
-    public function update_user($data){
-        $query = $this->db->where('user_name', $_SESSION["user_name"])->update('user',$data);
-
-            return true;
-    }
     public function sendmail($data){
 //        $this->load->library('encrypt');
         $account=$data['user_name'];

@@ -41,6 +41,7 @@ class Welcome extends CI_Controller
     public function index($dat = '')
 
     {
+
         if (isset($_SESSION["user_name"])) {
             $this->load->view('user.php');
         }
