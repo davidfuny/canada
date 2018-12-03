@@ -30,7 +30,15 @@ $this->lang->load('content',$user_language);
                 </li>
                 <?php
                 if (isset($_SESSION["user_name"])){?>
-                    <li><a href="<?php echo site_url('welcome/logout') ?>" class="menu"><?=$this->lang->line('logout');?></a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn menu"><?=$this->lang->line('logout');?></a>
+                        <div class="dropdown-content">
+                            <a  href="<?php echo site_url('welcome/logout') ?>"><?=$_SESSION["user_name"];?></a>
+
+
+                        </div>
+                    </li>
+
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropbtn menu"><?=$this->lang->line('profile');?></a>
                         <div class="dropdown-content">
