@@ -79,4 +79,5 @@ $lang['postal_code']="邮编码";
 $lang['origin_land']="出生地";
 $lang['key_words']="关键词";
 $lang['citizenship']="国籍";
+$lang['down_message']="手机App已经在下载中，请耐心等待检查浏览器中的下载状态。";
 ?>

@@ -77,5 +77,6 @@ $lang['postal_code']="Postal Code";
 $lang['origin_land']="Origin Land";
 $lang['key_words']="Key Words";
 $lang['citizenship']="Citizenship";
+$lang['down_message']="The mobile app is being downloaded, please check the download status in browser.";
 
 ?>
